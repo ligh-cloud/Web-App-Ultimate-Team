@@ -1,0 +1,11 @@
+.stadium{
+    background-image: url('img/stadium.webp');
+}
+.player-button:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 255, 0, 0.5);
+}
+img{
+    padding: 0;
+}
