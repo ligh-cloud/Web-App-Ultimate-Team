@@ -704,7 +704,7 @@ positionSelect.addEventListener('change', (e) => {
 let newPlayerBtn = document.querySelector('#submit-btn');
 newPlayerBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    let id = 26;
+    let id = 27;
     let name = document.querySelector('#name').value.trim();
     let positionSelect = document.querySelector('#position').value;
     let score = document.querySelector('#score').value.trim();
@@ -725,7 +725,7 @@ newPlayerBtn.addEventListener('click', (e) => {
     let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png"
     if (positionSelect == 'GK') {
         const formData = {
-            "id": id + 1,
+            "id": id,
             "name": name,
             "photo": photo,
             "position": "GK",
@@ -742,11 +742,39 @@ newPlayerBtn.addEventListener('click', (e) => {
             "positioning": positioning
 
         }
+        players.push(formData)
         console.log(formData);
     }
+    else {
+        const formData = {
+            "id": id ,
+            "name": name,
+            "photo": photo,
+            "position": "GK",
+            "nationality": "none",
+            "flag": flag,
+            "club": "Unknown",
+            "logo": logo,
+            "rating": score,
+            "diving": diving,
+            "handling": handling,
+            "kicking": kicking,
+            "reflexes": reflexes,
+            "speed": speed,
+            "positioning": positioning
+
+        }
+        players.push(formData)
+        console.log(formData);
+        
+    }
+    id++;
     
+    
+    console.log(players)  
 
 })
+
 
 
 
