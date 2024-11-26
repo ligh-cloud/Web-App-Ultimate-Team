@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,72 +8,73 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="bg-green-700 text-white shadow-md h-[10vh]">
         <div class="container mx-auto flex items-center justify-between p-4">
-          <!-- Logo -->
-          <a href="#" class="text-2xl font-bold">Football Team</a>
-          
-          <!-- Navigation Links -->
-          <ul class="flex space-x-6">
-            <li><a href="#players" class="hover:text-yellow-400">Players</a></li>
-            <li><a href="#formations" class="hover:text-yellow-400">Formations</a></li>
-            <li><a href="#chemistry" class="hover:text-yellow-400">Team Chemistry</a></li>
-            <li><a href="#stats" class="hover:text-yellow-400">Player Stats</a></li>
-            <li><a href="#settings" class="hover:text-yellow-400">Settings</a></li>
-          </ul>
-    
-          <!-- Search Bar -->
-          <div class="flex items-center space-x-2">
-            <input 
-              type="text" 
-              placeholder="Search players..." 
-              class="px-4 py-2 rounded bg-white text-black outline-none"
-            />
-            <button class="bg-yellow-500 px-4 py-2 rounded hover:bg-yellow-600">Search</button>
-          </div>
+
+            <a href="#" class="text-2xl font-bold">Football Team</a>
+
+
+            <ul class="flex space-x-6">
+                <li><a href="#players" class="hover:text-yellow-400">Players</a></li>
+                <li><a href="#formations" class="hover:text-yellow-400">Formations</a></li>
+                <li><a href="#chemistry" class="hover:text-yellow-400">Team Chemistry</a></li>
+                <li><a href="#stats" class="hover:text-yellow-400">Player Stats</a></li>
+                <li><a href="#settings" class="hover:text-yellow-400">Settings</a></li>
+            </ul>
+
+
+
         </div>
-      </nav>
-      <section>
+    </nav>
+    <section>
         <div class="stadium w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
-            <button data-position="LW" class="player-button GK absolute top-[5%] left-[50%] rounded-full p-0 z-0">
-              <img src="img/plus.svg" class="w-16" alt="GK">
+            <button data-position="ST" class="player-button absolute top-[5%] left-[50%] rounded-full p-0 z-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
             </button>
-            <button data-position="ST" class="player-button LCB absolute top-[15%] left-[10%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="CB">
+            <button data-position="LW" class="player-button  absolute top-[15%] left-[10%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
             </button>
-            <button data-position="RW" class="player-button RCB absolute top-[15%] right-[10%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="CB">
+            <button data-position="RW" class="player-button  absolute top-[15%] right-[10%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
             </button>
-            <button data-position="LW" class="player-button LB absolute top-[35%] left-[20%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="LB">
+            <button data-position="CM" class="CM1 player-button  absolute top-[35%] left-[20%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LB">
             </button>
-            <button data-position="CDM" class="player-button RB absolute top-[35%] right-[20%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="RB">
+            <button data-position="CM" class="CM2 player-button  absolute top-[35%] right-[20%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RB">
             </button>
-            <button data-position="CM" class="player-button CM absolute top-[45%] left-[50%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="CM">
+            <button data-position="CDM" class="player-button  absolute top-[45%] left-[50%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CM">
             </button>
-            <button data-position="RB" class="player-button LM absolute top-[70%] left-[30%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="CDM">
+            <button data-position="CB" class="CB2 player-button  absolute top-[70%] left-[30%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CDM">
             </button>
-            <button data-position="LB" class="player-button RM absolute top-[70%] right-[30%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="LW">
+            <button data-position="CB" class="CB1 player-button  absolute top-[70%] right-[30%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
             </button>
-            <button data-position="CB" class="player-button LW absolute top-[80%] left-[10%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="RW">
+            <button data-position="LB" class="player-button CB1 absolute top-[80%] left-[10%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RW">
             </button>
-            <button data-position="CB" class="player-button RW absolute top-[80%] right-[10%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="ST">
+            <button data-position="RB" class="player-button CB2 absolute top-[80%] right-[10%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="ST">
             </button>
-            <button data-position="GK" class="player-button CF absolute top-[88%] left-[50%] rounded-full p-0">
-              <img src="img/plus.svg" class="w-16" alt="LW">
+            <button data-position="GK" class="player-button  absolute top-[88%] left-[50%] rounded-full p-0">
+                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
             </button>
-          </div>
-          
-      <div class="cards-container">
+            
+        </div>
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
+            <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
+        </div>
+
+        <form
+            class="pop-up bg-[#14803c] p-6 absolute top-[20vh] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
+           
+        </form>
+
         
-      </div>
     </section>
 
     <section class="player-card">
@@ -94,35 +96,36 @@
         <div data-position="CF" class="player-button CF absolute top-[88%] left-[50%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="CF"></div>
     </section>
         -->
-        
+
     <div class="absolute ">
-        
+
     </div>
     </section>
     <footer class="bg-green-700 text-white py-6 px-2">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-      
+
             <div class="text-2xl font-bold mb-4 md:mb-0">
                 <a href="#">Football Team</a>
             </div>
-            
-           
+
+
             <ul class="flex space-x-6 mb-4 md:mb-0">
                 <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
                 <li><a href="#privacy" class="hover:text-yellow-400">Privacy Policy</a></li>
                 <li><a href="#terms" class="hover:text-yellow-400">Terms of Service</a></li>
             </ul>
-            
-           
+
+
             <div class="flex space-x-6 mb-4 md:mb-0">
                 <a href="#" class="hover:text-yellow-400">Facebook</a>
                 <a href="#" class="hover:text-yellow-400">Twitter</a>
                 <a href="#" class="hover:text-yellow-400">Instagram</a>
             </div>
-            
-         
+
+
             <div class="text-sm">
-                <p>Email: <a href="mailto:support@footballteam.com" class="hover:text-yellow-400">support@footballteam.com</a></p>
+                <p>Email: <a href="mailto:support@footballteam.com"
+                        class="hover:text-yellow-400">support@footballteam.com</a></p>
                 <p>Phone: +1 (800) 123-4567</p>
             </div>
         </div>
@@ -131,7 +134,8 @@
         </div>
     </footer>
 
-   
+
     <script src="script/script.js"></script>
 </body>
+
 </html>

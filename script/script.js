@@ -1,6 +1,7 @@
 
     const players = [
       {
+        "id":1,
         "name": "Lionel Messi",
         "photo": "https://cdn.sofifa.net/players/158/023/25_120.png",
         "position": "RW",
@@ -17,6 +18,7 @@
         "physical": 65
       },
       {
+        "id":2,
         "name": "Cristiano Ronaldo",
         "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
         "position": "ST",
@@ -33,6 +35,7 @@
         "physical": 77
       },
       {
+        "id":3,
         "name": "Kevin De Bruyne",
         "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
         "position": "CM",
@@ -49,6 +52,7 @@
         "physical": 78
       },
       {
+        "id":4,
         "name": "Kylian Mbappé",
         "photo": "https://cdn.sofifa.net/players/231/747/25_120.png",
         "position": "ST",
@@ -65,6 +69,7 @@
         "physical": 77
       },
       {
+        "id":5,
         "name": "Virgil van Dijk",
         "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
         "position": "CB",
@@ -81,6 +86,7 @@
         "physical": 86
       },
       {
+        "id":6,
         "name": "Antonio Rudiger",
         "photo": "https://cdn.sofifa.net/players/205/452/25_120.png",
         "position": "CB",
@@ -97,6 +103,7 @@
         "physical": 86
       },
       {
+        "id":7,
         "name": "Neymar Jr",
         "photo": "https://cdn.sofifa.net/players/190/871/25_120.png",
         "position": "LW",
@@ -113,6 +120,7 @@
         "physical": 61
       },
       {
+        "id":8,
         "name": "Mohamed Salah",
         "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
         "position": "RW",
@@ -129,6 +137,7 @@
         "physical": 75
       },
       {
+        "id":9,
         "name": "Joshua Kimmich",
         "photo": "https://cdn.sofifa.net/players/212/622/25_120.png",
         "position": "CM",
@@ -145,6 +154,7 @@
         "physical": 81
       },
       {
+        "id":10,
         "name": "Jan Oblak",
         "photo": "https://cdn.sofifa.net/players/200/389/25_120.png",
         "position": "GK",
@@ -161,6 +171,7 @@
         "positioning": 88
       },
       {
+        "id":11,
         "name": "Luka Modrić",
         "photo": "https://cdn.sofifa.net/players/177/003/25_120.png",
         "position": "CM",
@@ -177,6 +188,7 @@
         "physical": 65
       },
       {
+        "id":12,
         "name": "Vinicius Junior",
         "photo": "https://cdn.sofifa.net/players/238/794/25_120.png",
         "position": "LW",
@@ -193,6 +205,7 @@
         "physical": 61
       },
       {
+        "id":13,
         "name": "Brahim Diáz",
         "photo": "https://cdn.sofifa.net/players/231/410/25_120.png",
         "position": "LW",
@@ -209,6 +222,7 @@
         "physical": 56
       },
       {
+        "id":14,
         "name": "Karim Benzema",
         "photo": "https://cdn.sofifa.net/players/165/153/25_120.png",
         "position": "ST",
@@ -225,6 +239,7 @@
         "physical": 78
       },
       {
+        "id":15,
         "name": "Erling Haaland",
         "photo": "https://cdn.sofifa.net/players/239/085/25_120.png",
         "position": "ST",
@@ -241,6 +256,7 @@
         "physical": 88
       },
       {
+        "id":16,
         "name": "N'Golo Kanté",
         "photo": "https://cdn.sofifa.net/players/215/914/25_120.png",
         "position": "CDM",
@@ -257,6 +273,7 @@
         "physical": 82
       },
       {
+        "id":17,
         "name": "Alphonso Davies",
         "photo": "https://cdn.sofifa.net/players/234/396/25_120.png",
         "position": "LB",
@@ -273,6 +290,7 @@
         "physical": 77
       },
       {
+        "id":18,
         "name": "Yassine Bounou",
         "photo": "https://cdn.sofifa.net/players/209/981/25_120.png",
         "position": "GK",
@@ -289,6 +307,7 @@
         "positioning": 83
       },
       {
+        "id":19,
         "name": "Bruno Fernandes",
         "photo": "https://cdn.sofifa.net/players/212/198/25_120.png",
         "position": "CM",
@@ -305,6 +324,7 @@
         "physical": 77
       },
       {
+        "id":20,
         "name": "Jadon Sancho",
         "photo": "https://cdn.sofifa.net/players/233/049/25_120.png",
         "position": "LW",
@@ -321,6 +341,7 @@
         "physical": 63
       },
       {
+        "id":21,
         "name": "Trent Alexander-Arnold",
         "photo": "https://cdn.sofifa.net/players/231/281/25_120.png",
         "position": "RB",
@@ -336,6 +357,7 @@
         "physical": 71
       },
       {
+        "id":22,
         "name": "Achraf Hakimi",
         "photo": "https://cdn.sofifa.net/players/235/212/25_120.png",
         "position": "RB",
@@ -352,6 +374,7 @@
         "physical": 78
       },
       {
+        "id":23,
         "name": "Youssef En-Nesyri",
         "photo": "https://cdn.sofifa.net/players/235/410/25_120.png",
         "position": "ST",
@@ -368,6 +391,7 @@
         "physical": 80
       },
       {
+        "id":24,
         "name": "Noussair Mazraoui",
         "photo": "https://cdn.sofifa.net/players/236/401/25_120.png",
         "position": "LB",
@@ -384,6 +408,7 @@
         "physical": 71
       },
       {
+        "id":25,
         "name": "Ismael Saibari",
         "photo": "https://cdn.sofifa.net/players/259/480/25_120.png",
         "position": "CM",
@@ -400,6 +425,7 @@
         "physical": 84
       },
       {
+        "id":26,
         "name": "Gianluigi Donnarumma",
         "photo": "https://cdn.sofifa.net/players/230/621/25_120.png",
         "position": "GK",
@@ -420,48 +446,231 @@
     let addingButton = document.querySelectorAll('.player-button');
     let playerCards = document.querySelector('.player-card');
     let cardContainer = document.querySelector('.cards-container');
-    let card = document.createAttributeNS("div");
+    let form = document.querySelector('.pop-up');
+    const overlay = document.querySelector("#popup-overlay");
+    let closeForm = document.querySelector('.close-form');
+    let addPlayer = document.querySelector('.add-button');
+    let stadium = document.querySelector('.stadium');
     addingButton.forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         const position = e.currentTarget.dataset.position;
-        filtredPlayer = players.filter(function(player) {
+        let filtredPlayer = players.filter(function(player) {
           if (player.position === position) {
             return player;
           }
           
+          });
+          filtredPlayer.forEach(player => {
+            displayList(player);
+            
+            
         });
+        form.classList.toggle("hidden");
+        overlay.classList.remove("hidden");
         console.log(filtredPlayer);
       });
+      closeForm.addEventListener('click', () =>{
+         form.classList.add("hidden");
+         overlay.classList.add("hidden");
+         form.innerHTML="";
+      })
+      overlay.addEventListener("click", () => {
+        form.classList.add("hidden");
+        overlay.classList.add("hidden");
+        form.innerHTML="";
+        
     });
-    function displayCard(player){
-       switch(player.position){
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-        case 'LW':
-            player.classList.add("absolute top-[5%] left-[50%] rounded-full p-0 z-10");
-        break;
-                      
-          
-       }
+      
+    });
+    
+   
+    function displayList(player){
+        
+       
+        let popUpCard = document.createElement('div');
+        popUpCard.innerHTML = `<div class = "bg-[#e7e6f2] flex rounded-lg justify-evenly"> <img class= "lg:h-14 lg:w-14 h-10 w-10" src=${player.photo}> <div class = "flex flex-col lg:w-44 w-32 font-[16px] "><h2>Name : ${player.name}</h2> <p>Rating : ${player.rating} </p></div> <button id="${player.id}" class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">Add player</button></div>`
+        form.appendChild(popUpCard);
+        
     }
 
-  
+    form.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        if (e.target.classList.contains('add-button')) {
+            const id = e.target.id; 
+            console.log("ID:", id);
+    
+
+            const player = players.find(player => player.id == id);
+    
+           
+            
+            if (player.position != 'GK') {
+                console.log("Players array:", players);
+                const playerCard = document.createElement('div');
+                playerCard.classList.add("lg:h-[60px]")
+                playerCard.innerHTML = `
+                    <div class="wrapper">
+                        <div class="fut-player-card">
+                            <div class="player-card-top">
+                                <div class="player-master-info">
+                                    <div class="player-rating"><span>${player.rating}</span></div>
+                                    <div class="player-position"><span>${player.position}</span></div>
+                                    <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
+                                    <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
+                                </div>
+                                <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
+                            </div>
+                            <!-- Player Card Bottom-->
+                            <div class="player-card-bottom">
+                                <div class="player-info">
+                                    <div class="player-name"><span>${player.name}</span></div>
+                                    <div class="player-features">
+                                        <div class="player-features-col">
+                                            <span>
+                                                <div class="player-feature-value">${player.pace}</div>
+                                                <div class="player-feature-title">PAC</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.shooting}</div>
+                                                <div class="player-feature-title">SHO</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.passing}</div>
+                                                <div class="player-feature-title">PAS</div>
+                                            </span>
+                                        </div>
+                                        <div class="player-features-col">
+                                            <span>
+                                                <div class="player-feature-value">${player.dribbling}</div>
+                                                <div class="player-feature-title">DRI</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.defending}</div>
+                                                <div class="player-feature-title">DEF</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.physical}</div>
+                                                <div class="player-feature-title">PHY</div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                    stadium.appendChild(playerCard);
+                playerPos(playerCard, player.position);
+                console.log(cardContainer);
+            }
+
+                    
+            if (player.position == 'GK') {
+                console.log("Players array:", players);
+                const playerCard = document.createElement('div');
+                playerCard.classList.add("lg:h-[60px]")
+                playerCard.innerHTML = `
+                    <div class="wrapper">
+                        <div class="fut-player-card">
+                            <div class="player-card-top">
+                                <div class="player-master-info">
+                                    <div class="player-rating"><span>${player.rating}</span></div>
+                                    <div class="player-position"><span>${player.position}</span></div>
+                                    <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
+                                    <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
+                                </div>
+                                <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
+                            </div>
+                            <!-- Player Card Bottom-->
+                            <div class="player-card-bottom">
+                                <div class="player-info">
+                                    <div class="player-name"><span>${player.name}</span></div>
+                                    <div class="player-features">
+                                        <div class="player-features-col">
+                                            <span>
+                                                <div class="player-feature-value">${player.diving}</div>
+                                                <div class="player-feature-title">DIV</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.handling}</div>
+                                                <div class="player-feature-title">HAN</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.kicking}</div>
+                                                <div class="player-feature-title">KIC</div>
+                                            </span>
+                                        </div>
+                                        <div class="player-features-col">
+                                            <span>
+                                                <div class="player-feature-value">${player.reflexes}</div>
+                                                <div class="player-feature-title">REF</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.speed}</div>
+                                                <div class="player-feature-title">SPE</div>
+                                            </span>
+                                            <span>
+                                                <div class="player-feature-value">${player.positioning}</div>
+                                                <div class="player-feature-title">POS</div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+    
+                stadium.appendChild(playerCard);
+                playerPos(playerCard, player.position);
+                console.log(cardContainer);
+            } else {
+                console.warn("Player not found with ID:", id);
+            }
+        }
+    });
+    
+   
+    
+
+
+        function playerPos(playerElement, position) {
+            switch (position) {
+                case 'LW':
+                    playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "p-0", "z-10");
+                    break;
+                case 'ST':
+                    playerElement.classList.add("absolute", "top-[3%]", "left-[50%]", "z-10");
+                    break;
+                case 'RW':
+                    playerElement.classList.add("absolute", "top-[13%]", "right-[10%]", "p-0", "z-10");
+                    break;
+                case 'CDM':
+                    playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "p-0", "z-10");
+                    break;
+                case 'CM':
+                    playerElement.classList.add("absolute", "top-[33%]", "left-[20%]", "p-0", "z-10");
+                    break;
+                case 'CM':
+                    playerElement.classList.add("absolute", "top-[33%]", "right-[20%]", "p-0", "z-10");
+                    break;    
+                case 'RB':
+                    playerElement.classList.add("absolute", "top-[77%]", "right-[10%]", "p-0", "z-10");
+                    break;
+                case 'LB':
+                    playerElement.classList.add("absolute", "top-[77%]", "left-[10%]", "p-0", "z-10");
+                    break;
+                case 'CB':
+                    playerElement.classList.add("absolute", "top-[67%]", "left-[30%]", "p-0", "z-10");
+                    break;
+                case 'CB':
+                    playerElement.classList.add("absolute", "top-[67%]", "right-[30%]", "p-0", "z-10");
+                    break;    
+                case 'GK':
+                    playerElement.classList.add("absolute", "top-[85%]", "left-[50%]", "p-0", "z-10");
+                    break;
+                default:
+                    console.warn("Unknown position:", position);
+            }
+        }
+
