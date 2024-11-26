@@ -1,7 +1,7 @@
 
-    const players = [
-      {
-        "id":1,
+const players = [
+    {
+        "id": 1,
         "name": "Lionel Messi",
         "photo": "https://cdn.sofifa.net/players/158/023/25_120.png",
         "position": "RW",
@@ -16,9 +16,9 @@
         "dribbling": 95,
         "defending": 35,
         "physical": 65
-      },
-      {
-        "id":2,
+    },
+    {
+        "id": 2,
         "name": "Cristiano Ronaldo",
         "photo": "https://cdn.sofifa.net/players/020/801/25_120.png",
         "position": "ST",
@@ -33,12 +33,12 @@
         "dribbling": 87,
         "defending": 34,
         "physical": 77
-      },
-      {
-        "id":3,
+    },
+    {
+        "id": 3,
         "name": "Kevin De Bruyne",
         "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
-        "position": "CM",
+        "position": "LCM",
         "nationality": "Belgium",
         "flag": "https://cdn.sofifa.net/flags/be.png",
         "club": "Manchester City",
@@ -50,9 +50,9 @@
         "dribbling": 88,
         "defending": 64,
         "physical": 78
-      },
-      {
-        "id":4,
+    },
+    {
+        "id": 4,
         "name": "Kylian Mbappé",
         "photo": "https://cdn.sofifa.net/players/231/747/25_120.png",
         "position": "ST",
@@ -67,12 +67,12 @@
         "dribbling": 92,
         "defending": 39,
         "physical": 77
-      },
-      {
-        "id":5,
+    },
+    {
+        "id": 5,
         "name": "Virgil van Dijk",
         "photo": "https://cdn.sofifa.net/players/203/376/25_120.png",
-        "position": "CB",
+        "position": "RCB",
         "nationality": "Netherlands",
         "flag": "https://cdn.sofifa.net/flags/nl.png",
         "club": "Liverpool",
@@ -84,12 +84,12 @@
         "dribbling": 72,
         "defending": 92,
         "physical": 86
-      },
-      {
-        "id":6,
+    },
+    {
+        "id": 6,
         "name": "Antonio Rudiger",
         "photo": "https://cdn.sofifa.net/players/205/452/25_120.png",
-        "position": "CB",
+        "position": "LCB",
         "nationality": "Germany",
         "flag": "https://cdn.sofifa.net/flags/de.png",
         "club": "Real Madrid",
@@ -101,9 +101,9 @@
         "dribbling": 70,
         "defending": 86,
         "physical": 86
-      },
-      {
-        "id":7,
+    },
+    {
+        "id": 7,
         "name": "Neymar Jr",
         "photo": "https://cdn.sofifa.net/players/190/871/25_120.png",
         "position": "LW",
@@ -118,9 +118,9 @@
         "dribbling": 94,
         "defending": 37,
         "physical": 61
-      },
-      {
-        "id":8,
+    },
+    {
+        "id": 8,
         "name": "Mohamed Salah",
         "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
         "position": "RW",
@@ -135,12 +135,12 @@
         "dribbling": 90,
         "defending": 45,
         "physical": 75
-      },
-      {
-        "id":9,
+    },
+    {
+        "id": 9,
         "name": "Joshua Kimmich",
         "photo": "https://cdn.sofifa.net/players/212/622/25_120.png",
-        "position": "CM",
+        "position": "RCM",
         "nationality": "Germany",
         "flag": "https://cdn.sofifa.net/flags/de.png",
         "club": "Bayern Munich",
@@ -152,9 +152,9 @@
         "dribbling": 84,
         "defending": 84,
         "physical": 81
-      },
-      {
-        "id":10,
+    },
+    {
+        "id": 10,
         "name": "Jan Oblak",
         "photo": "https://cdn.sofifa.net/players/200/389/25_120.png",
         "position": "GK",
@@ -169,12 +169,12 @@
         "reflexes": 92,
         "speed": 50,
         "positioning": 88
-      },
-      {
-        "id":11,
+    },
+    {
+        "id": 11,
         "name": "Luka Modrić",
         "photo": "https://cdn.sofifa.net/players/177/003/25_120.png",
-        "position": "CM",
+        "position": "LCM",
         "nationality": "Croatia",
         "flag": "https://cdn.sofifa.net/flags/hr.png",
         "club": "Real Madrid",
@@ -186,9 +186,9 @@
         "dribbling": 90,
         "defending": 72,
         "physical": 65
-      },
-      {
-        "id":12,
+    },
+    {
+        "id": 12,
         "name": "Vinicius Junior",
         "photo": "https://cdn.sofifa.net/players/238/794/25_120.png",
         "position": "LW",
@@ -203,9 +203,9 @@
         "dribbling": 94,
         "defending": 39,
         "physical": 61
-      },
-      {
-        "id":13,
+    },
+    {
+        "id": 13,
         "name": "Brahim Diáz",
         "photo": "https://cdn.sofifa.net/players/231/410/25_120.png",
         "position": "LW",
@@ -220,16 +220,16 @@
         "dribbling": 85,
         "defending": 31,
         "physical": 56
-      },
-      {
-        "id":14,
+    },
+    {
+        "id": 14,
         "name": "Karim Benzema",
         "photo": "https://cdn.sofifa.net/players/165/153/25_120.png",
         "position": "ST",
         "nationality": "France",
         "flag": "https://cdn.sofifa.net/flags/fr.png",
         "club": "Al-Ittihad",
-        "logo" :"https://cdn.sofifa.net/meta/team/476/120.png",
+        "logo": "https://cdn.sofifa.net/meta/team/476/120.png",
         "rating": 90,
         "pace": 77,
         "shooting": 90,
@@ -237,9 +237,9 @@
         "dribbling": 88,
         "defending": 40,
         "physical": 78
-      },
-      {
-        "id":15,
+    },
+    {
+        "id": 15,
         "name": "Erling Haaland",
         "photo": "https://cdn.sofifa.net/players/239/085/25_120.png",
         "position": "ST",
@@ -254,9 +254,9 @@
         "dribbling": 80,
         "defending": 45,
         "physical": 88
-      },
-      {
-        "id":16,
+    },
+    {
+        "id": 16,
         "name": "N'Golo Kanté",
         "photo": "https://cdn.sofifa.net/players/215/914/25_120.png",
         "position": "CDM",
@@ -271,9 +271,9 @@
         "dribbling": 82,
         "defending": 88,
         "physical": 82
-      },
-      {
-        "id":17,
+    },
+    {
+        "id": 17,
         "name": "Alphonso Davies",
         "photo": "https://cdn.sofifa.net/players/234/396/25_120.png",
         "position": "LB",
@@ -288,9 +288,9 @@
         "dribbling": 82,
         "defending": 76,
         "physical": 77
-      },
-      {
-        "id":18,
+    },
+    {
+        "id": 18,
         "name": "Yassine Bounou",
         "photo": "https://cdn.sofifa.net/players/209/981/25_120.png",
         "position": "GK",
@@ -305,12 +305,12 @@
         "reflexes": 86,
         "speed": 38,
         "positioning": 83
-      },
-      {
-        "id":19,
+    },
+    {
+        "id": 19,
         "name": "Bruno Fernandes",
         "photo": "https://cdn.sofifa.net/players/212/198/25_120.png",
-        "position": "CM",
+        "position": "RCM",
         "nationality": "Portugal",
         "flag": "https://cdn.sofifa.net/flags/pt.png",
         "club": "Manchester United",
@@ -322,9 +322,9 @@
         "dribbling": 84,
         "defending": 69,
         "physical": 77
-      },
-      {
-        "id":20,
+    },
+    {
+        "id": 20,
         "name": "Jadon Sancho",
         "photo": "https://cdn.sofifa.net/players/233/049/25_120.png",
         "position": "LW",
@@ -339,9 +339,9 @@
         "dribbling": 88,
         "defending": 34,
         "physical": 63
-      },
-      {
-        "id":21,
+    },
+    {
+        "id": 21,
         "name": "Trent Alexander-Arnold",
         "photo": "https://cdn.sofifa.net/players/231/281/25_120.png",
         "position": "RB",
@@ -355,9 +355,9 @@
         "dribbling": 80,
         "defending": 79,
         "physical": 71
-      },
-      {
-        "id":22,
+    },
+    {
+        "id": 22,
         "name": "Achraf Hakimi",
         "photo": "https://cdn.sofifa.net/players/235/212/25_120.png",
         "position": "RB",
@@ -372,9 +372,9 @@
         "dribbling": 80,
         "defending": 75,
         "physical": 78
-      },
-      {
-        "id":23,
+    },
+    {
+        "id": 23,
         "name": "Youssef En-Nesyri",
         "photo": "https://cdn.sofifa.net/players/235/410/25_120.png",
         "position": "ST",
@@ -389,9 +389,9 @@
         "dribbling": 77,
         "defending": 36,
         "physical": 80
-      },
-      {
-        "id":24,
+    },
+    {
+        "id": 24,
         "name": "Noussair Mazraoui",
         "photo": "https://cdn.sofifa.net/players/236/401/25_120.png",
         "position": "LB",
@@ -406,12 +406,12 @@
         "dribbling": 83,
         "defending": 77,
         "physical": 71
-      },
-      {
-        "id":25,
+    },
+    {
+        "id": 25,
         "name": "Ismael Saibari",
         "photo": "https://cdn.sofifa.net/players/259/480/25_120.png",
-        "position": "CM",
+        "position": "LCM",
         "nationality": "Morocco",
         "flag": "https://cdn.sofifa.net/flags/ma.png",
         "club": "PSV",
@@ -423,9 +423,9 @@
         "dribbling": 86,
         "defending": 55,
         "physical": 84
-      },
-      {
-        "id":26,
+    },
+    {
+        "id": 26,
         "name": "Gianluigi Donnarumma",
         "photo": "https://cdn.sofifa.net/players/230/621/25_120.png",
         "position": "GK",
@@ -440,76 +440,76 @@
         "reflexes": 90,
         "speed": 50,
         "positioning": 85
-      }
-    ];
-   
-    let addingButton = document.querySelectorAll('.player-button');
-    let playerCards = document.querySelector('.player-card');
-    let cardContainer = document.querySelector('.cards-container');
-    let form = document.querySelector('.pop-up');
-    const overlay = document.querySelector("#popup-overlay");
-    let closeForm = document.querySelector('.close-form');
-    let addPlayer = document.querySelector('.add-button');
-    let stadium = document.querySelector('.stadium');
-    addingButton.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
+    }
+];
+
+let addingButton = document.querySelectorAll('.player-button');
+let playerCards = document.querySelector('.player-card');
+let cardContainer = document.querySelector('.cards-container');
+let form = document.querySelector('.pop-up');
+const overlay = document.querySelector("#popup-overlay");
+let closeForm = document.querySelector('.close-form');
+let addPlayer = document.querySelector('.add-button');
+let stadium = document.querySelector('.stadium');
+addingButton.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
         const position = e.currentTarget.dataset.position;
-        let filtredPlayer = players.filter(function(player) {
-          if (player.position === position) {
-            return player;
-          }
-          
-          });
-          filtredPlayer.forEach(player => {
+        let filtredPlayer = players.filter(function (player) {
+            if (player.position === position) {
+                return player;
+            }
+
+        });
+        filtredPlayer.forEach(player => {
             displayList(player);
-            
-            
+
+
         });
         form.classList.toggle("hidden");
         overlay.classList.remove("hidden");
         console.log(filtredPlayer);
-      });
-      closeForm.addEventListener('click', () =>{
-         form.classList.add("hidden");
-         overlay.classList.add("hidden");
-         form.innerHTML="";
-      })
-      overlay.addEventListener("click", () => {
+    });
+    closeForm.addEventListener('click', () => {
         form.classList.add("hidden");
         overlay.classList.add("hidden");
-        form.innerHTML="";
-        
-    });
-      
-    });
-    
-   
-    function displayList(player){
-        
-       
-        let popUpCard = document.createElement('div');
-        popUpCard.innerHTML = `<div class = "bg-[#e7e6f2] flex rounded-lg justify-evenly"> <img class= "lg:h-14 lg:w-14 h-10 w-10" src=${player.photo}> <div class = "flex flex-col lg:w-44 w-32 font-[16px] "><h2>Name : ${player.name}</h2> <p>Rating : ${player.rating} </p></div> <button id="${player.id}" class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">Add player</button></div>`
-        form.appendChild(popUpCard);
-        
-    }
+        form.innerHTML = "";
+    })
+    overlay.addEventListener("click", () => {
+        form.classList.add("hidden");
+        overlay.classList.add("hidden");
+        form.innerHTML = "";
 
-    form.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        if (e.target.classList.contains('add-button')) {
-            const id = e.target.id; 
-            console.log("ID:", id);
-    
+    });
 
-            const player = players.find(player => player.id == id);
-    
-           
-            
-            if (player.position != 'GK') {
-                console.log("Players array:", players);
-                const playerCard = document.createElement('div');
-                playerCard.classList.add("lg:h-[60px]")
-                playerCard.innerHTML = `
+});
+
+
+function displayList(player) {
+
+
+    let popUpCard = document.createElement('div');
+    popUpCard.innerHTML = `<div class = "bg-[#e7e6f2] flex rounded-lg justify-evenly"> <img class= "lg:h-14 lg:w-14 h-10 w-10" src=${player.photo}> <div class = "flex flex-col lg:w-44 w-32 font-[16px] "><h2>Name : ${player.name}</h2> <p>Rating : ${player.rating} </p></div> <button id="${player.id}" class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">Add player</button></div>`
+    form.appendChild(popUpCard);
+
+}
+
+form.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (e.target.classList.contains('add-button')) {
+        const id = e.target.id;
+        console.log("ID:", id);
+
+
+        const player = players.find(player => player.id == id);
+
+
+
+        if (player.position != 'GK') {
+            console.log("Players array:", players);
+            const playerCard = document.createElement('div');
+            playerCard.classList.add("lg:h-[60px]")
+            playerCard.innerHTML = `
                     <div class="wrapper">
                         <div class="fut-player-card">
                             <div class="player-card-top">
@@ -559,17 +559,17 @@
                             </div>
                         </div>
                     </div>`;
-                    stadium.appendChild(playerCard);
-                playerPos(playerCard, player.position);
-                console.log(cardContainer);
-            }
+            stadium.appendChild(playerCard);
+            playerPos(playerCard, player.position);
+            console.log(cardContainer);
+        }
 
-                    
-            if (player.position == 'GK') {
-                console.log("Players array:", players);
-                const playerCard = document.createElement('div');
-                playerCard.classList.add("lg:h-[60px]")
-                playerCard.innerHTML = `
+
+        if (player.position == 'GK') {
+            console.log("Players array:", players);
+            const playerCard = document.createElement('div');
+            playerCard.classList.add("lg:h-[60px]")
+            playerCard.innerHTML = `
                     <div class="wrapper">
                         <div class="fut-player-card">
                             <div class="player-card-top">
@@ -620,57 +620,133 @@
                         </div>
                     </div>`;
 
-    
-                stadium.appendChild(playerCard);
-                playerPos(playerCard, player.position);
-                console.log(cardContainer);
-            } else {
-                console.warn("Player not found with ID:", id);
-            }
+
+            stadium.appendChild(playerCard);
+            playerPos(playerCard, player.position);
+            console.log(cardContainer);
         }
-    });
-    
-   
-    
+    }
+});
 
 
-        function playerPos(playerElement, position) {
-            switch (position) {
-                case 'LW':
-                    playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "p-0", "z-10");
-                    break;
-                case 'ST':
-                    playerElement.classList.add("absolute", "top-[3%]", "left-[50%]", "z-10");
-                    break;
-                case 'RW':
-                    playerElement.classList.add("absolute", "top-[13%]", "right-[10%]", "p-0", "z-10");
-                    break;
-                case 'CDM':
-                    playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "p-0", "z-10");
-                    break;
-                case 'CM':
-                    playerElement.classList.add("absolute", "top-[33%]", "left-[20%]", "p-0", "z-10");
-                    break;
-                case 'CM':
-                    playerElement.classList.add("absolute", "top-[33%]", "right-[20%]", "p-0", "z-10");
-                    break;    
-                case 'RB':
-                    playerElement.classList.add("absolute", "top-[77%]", "right-[10%]", "p-0", "z-10");
-                    break;
-                case 'LB':
-                    playerElement.classList.add("absolute", "top-[77%]", "left-[10%]", "p-0", "z-10");
-                    break;
-                case 'CB':
-                    playerElement.classList.add("absolute", "top-[67%]", "left-[30%]", "p-0", "z-10");
-                    break;
-                case 'CB':
-                    playerElement.classList.add("absolute", "top-[67%]", "right-[30%]", "p-0", "z-10");
-                    break;    
-                case 'GK':
-                    playerElement.classList.add("absolute", "top-[85%]", "left-[50%]", "p-0", "z-10");
-                    break;
-                default:
-                    console.warn("Unknown position:", position);
-            }
+
+
+
+function playerPos(playerElement, position) {
+    switch (position) {
+        case 'LW':
+            playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "p-0", "z-10");
+            break;
+        case 'ST':
+            playerElement.classList.add("absolute", "top-[3%]", "left-[50%]", "z-10");
+            break;
+        case 'RW':
+            playerElement.classList.add("absolute", "top-[13%]", "right-[10%]", "p-0", "z-10");
+            break;
+        case 'CDM':
+            playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "p-0", "z-10");
+            break;
+        case 'LCM':
+            playerElement.classList.add("absolute", "top-[33%]", "left-[20%]", "p-0", "z-10");
+            break;
+        case 'RCM':
+            playerElement.classList.add("absolute", "top-[33%]", "right-[20%]", "p-0", "z-10");
+            break;
+        case 'RB':
+            playerElement.classList.add("absolute", "top-[77%]", "right-[10%]", "p-0", "z-10");
+            break;
+        case 'LB':
+            playerElement.classList.add("absolute", "top-[77%]", "left-[10%]", "p-0", "z-10");
+            break;
+        case 'LCB':
+            playerElement.classList.add("absolute", "top-[67%]", "left-[30%]", "p-0", "z-10");
+            break;
+        case 'RCB':
+            playerElement.classList.add("absolute", "top-[67%]", "right-[30%]", "p-0", "z-10");
+            break;
+        case 'GK':
+            playerElement.classList.add("absolute", "top-[85%]", "left-[50%]", "p-0", "z-10");
+            break;
+        default:
+            console.warn("Unknown position:", position);
+    }
+}
+const addPlayerBtn = document.getElementById('addPlayerBtn');
+const popupForm = document.getElementById('popupForm');
+const cancelBtn = document.getElementById('cancelBtn');
+
+addPlayerBtn.addEventListener('click', () => {
+    popupForm.classList.remove('hidden');
+});
+
+cancelBtn.addEventListener('click', () => {
+    popupForm.classList.add('hidden');
+});
+let positionSelect = document.querySelector('#position');
+let playerForm = document.querySelector('#players-stats');
+let GKForm = document.querySelector('#GK-stats');
+
+
+let photo = 'https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg'
+console.log(photo)
+positionSelect.addEventListener('change', (e) => {
+    const selectedValue = e.target.value;
+
+
+    if (selectedValue === 'GK') {
+        GKForm.classList.remove('hidden');
+        playerForm.classList.add('hidden');
+    } else {
+        playerForm.classList.remove('hidden');
+        GKForm.classList.add('hidden');
+    }
+});
+let newPlayerBtn = document.querySelector('#submit-btn');
+newPlayerBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    let id = 26;
+    let name = document.querySelector('#name').value.trim();
+    let positionSelect = document.querySelector('#position').value;
+    let score = document.querySelector('#score').value.trim();
+    let pace = document.querySelector('#pace').value.trim();
+    let shooting = document.querySelector('#shooting').value.trim();
+    let dribbling = document.querySelector('#dribbling').value.trim();
+    let defending = document.querySelector('#defending').value.trim();
+    let diving = document.querySelector('#diving').value.trim();
+    let physical = document.querySelector('#physical').value.trim();
+    let handling = document.querySelector('#handling').value.trim();
+    let passing = document.querySelector('#passing').value.trim();
+    let reflexes = document.querySelector('#reflexes').value.trim();
+    let speed = document.querySelector('#speed').value.trim();
+    let kicking = document.querySelector('#kicking').value.trim();
+    let positioning = document.querySelector('#positioning').value.trim();
+    let photo = 'https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg';
+    let flag = "https://www.pikpng.com/pngvi/hbmobR_logo-anonymous-computer-icons-brazil-hacker-anonymous-brasil-png-clipart/";
+    let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png"
+    if (positionSelect == 'GK') {
+        const formData = {
+            "id": id + 1,
+            "name": name,
+            "photo": photo,
+            "position": "GK",
+            "nationality": "none",
+            "flag": flag,
+            "club": "Unknown",
+            "logo": logo,
+            "rating": score,
+            "diving": diving,
+            "handling": handling,
+            "kicking": kicking,
+            "reflexes": reflexes,
+            "speed": speed,
+            "positioning": positioning
+
         }
+        console.log(formData);
+    }
+    
+
+})
+
+
 

@@ -28,74 +28,165 @@
 
         </div>
     </nav>
-    <section>
-        <div class="stadium w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
-            <button data-position="ST" class="player-button absolute top-[5%] left-[50%] rounded-full p-0 z-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
-            </button>
-            <button data-position="LW" class="player-button  absolute top-[15%] left-[10%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
-            </button>
-            <button data-position="RW" class="player-button  absolute top-[15%] right-[10%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
-            </button>
-            <button data-position="CM" class="CM1 player-button  absolute top-[35%] left-[20%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LB">
-            </button>
-            <button data-position="CM" class="CM2 player-button  absolute top-[35%] right-[20%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RB">
-            </button>
-            <button data-position="CDM" class="player-button  absolute top-[45%] left-[50%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CM">
-            </button>
-            <button data-position="CB" class="CB2 player-button  absolute top-[70%] left-[30%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CDM">
-            </button>
-            <button data-position="CB" class="CB1 player-button  absolute top-[70%] right-[30%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
-            </button>
-            <button data-position="LB" class="player-button CB1 absolute top-[80%] left-[10%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RW">
-            </button>
-            <button data-position="RB" class="player-button CB2 absolute top-[80%] right-[10%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="ST">
-            </button>
-            <button data-position="GK" class="player-button  absolute top-[88%] left-[50%] rounded-full p-0">
-                <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
-            </button>
-            
+    <section class="flex">
+
+        <div>
+            <div class="stadium w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
+                <button data-position="ST" class="player-button absolute top-[5%] left-[50%] rounded-full p-0 z-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
+                </button>
+                <button data-position="LW" class="player-button  absolute top-[15%] left-[10%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
+                </button>
+                <button data-position="RW" class="player-button  absolute top-[15%] right-[10%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
+                </button>
+                <button data-position="LCM" class="CM1 player-button  absolute top-[35%] left-[20%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LB">
+                </button>
+                <button data-position="RCM" class="CM2 player-button  absolute top-[35%] right-[20%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RB">
+                </button>
+                <button data-position="CDM" class="player-button  absolute top-[45%] left-[50%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CM">
+                </button>
+                <button data-position="LCB" class="CB2 player-button  absolute top-[70%] left-[30%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CDM">
+                </button>
+                <button data-position="RCB" class="CB1 player-button  absolute top-[70%] right-[30%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
+                </button>
+                <button data-position="LB" class="player-button CB1 absolute top-[80%] left-[10%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RW">
+                </button>
+                <button data-position="RB" class="player-button CB2 absolute top-[80%] right-[10%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="ST">
+                </button>
+                <button data-position="GK" class="player-button  absolute top-[88%] left-[50%] rounded-full p-0">
+                    <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
+                </button>
+
+            </div>
+
+            <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
+                <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
+            </div>
+
+            <form
+                class="pop-up bg-[#14803c] p-6 absolute top-[20vh] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
+
+            </form>
         </div>
-        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
-            <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
+        <div class="substitution w-[30vw] h-[90vh] bg-[#1ed65e]">
+            <div class="flex align-middle justify-center">
+          <button id="addPlayerBtn" class=" text-center my-3 h-[5vh] w-[20vw] bg-[#848c94] hover:scale-105 rounded-lg">Add new player</button>
         </div>
 
-        <form
-            class="pop-up bg-[#14803c] p-6 absolute top-[20vh] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
-           
-        </form>
 
-        
+        </div>
+
+
+
     </section>
+    <div id="popupForm" class="z-50 fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-4">
+            <h2 class="text-lg font-bold mb-4 text-center">Ajouter un Joueur</h2>
+            <form id="playerForm" class="space-y-4">
+               
+                <div>
+                    <label for="name" class="block font-medium text-gray-700">Nom</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                
+                <div>
+                    <label for="position" class="block font-medium text-gray-700">Position</label>
+                    <select id="position" name="position" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                        <option disabled selected hidden>Choose position</option>
+                        <option value="LW">LW</option>
+                        <option value="ST">ST</option>
+                        <option value="RW">RW</option>
+                        <option value="LCM">LCM</option>
+                        <option value="RCM">RCM</option>
+                        <option value="CDM">CDM</option>
+                        <option value="RB">RB</option>
+                        <option value="LB">LB</option>
+                        <option value="LCB">LCB</option>
+                        <option value="RCB">RCB</option>
+                        <option value="GK">GK</option>
+                    </select>
+                </div>
+              
+                <div>
+                    <label for="score" class="block font-medium text-gray-700">Score</label>
+                    <input name="score" type="number" id="score" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" required>
+                </div>
+               
+                <div id="players-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                    <div>
+                        <label for="pace" class="block font-medium text-gray-700">Pace (PAC)</label>
+                        <input name="pace" type="number" id="pace" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="shooting" class="block font-medium text-gray-700">Shooting (SHO)</label>
+                        <input name="shooting" type="number" id="shooting" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="passing" class="block font-medium text-gray-700">Passing (PAS)</label>
+                        <input name="passing" type="number" id="passing" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="dribbling" class="block font-medium text-gray-700">Dribbling (DRI)</label>
+                        <input name="dribbling" type="number" id="dribbling" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="defending" class="block font-medium text-gray-700">defending (DEF)</label>
+                        <input name="defending" type="number" id="defending"  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="physical" class="block font-medium text-gray-700">Physical (PHY)</label>
+                        <input name="physical" type="number" id="physical"  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                </div>
+                
+                <div id="GK-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                    <div>
+                        <label for="diving" class="block font-medium text-gray-700">Diving (DIV)</label>
+                        <input name="diving" type="number" id="diving" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="handling" class="block font-medium text-gray-700">Handling (HAN)</label>
+                        <input name="handling" type="number" id="handling" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="kicking" class="block font-medium text-gray-700">Kicking (KIC)</label>
+                        <input name="kicking" type="number" id="kicking" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="reflexes" class="block font-medium text-gray-700">Reflexes (REF)</label>
+                        <input name="reflexes" type="number" id="reflexes" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="speed" class="block font-medium text-gray-700">speed (SPE)</label>
+                        <input name="speed" type="number" id="speed"  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                    <div>
+                        <label for="positioning" class="block font-medium text-gray-700">Positioning (POS)</label>
+                        <input name="positioning" type="number" id="positioning"  class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" >
+                    </div>
+                </div>
+                
+                <div class="flex justify-between flex-wrap space-y-2 sm:space-y-0 sm:space-x-4 mt-4">
+                    <button type="button" id="cancelBtn" class="w-full sm:w-auto px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Annuler</button>
+                    <button id="submit-btn" type="submit" class="w-full sm:w-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <section class="player-card">
 
     </section>
-    <!-- <section class="relative">
-        <div data-position="GK" class="player-button GK absolute top-[5%] left-[50%] rounded-full p-0 ">
-            <img src="img/plus.svg" class="w-16" alt="GK">
-        </div>
-        <div data-position="LCB" class="player-button LCB absolute top-[15%] left-[10%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="LCB"></div>
-        <div data-position="RCB" class="player-button RCB absolute top-[15%] right-[10%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="RCB"></div>
-        <div data-position="LB" class="player-button LB absolute top-[35%] left-[20%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="LB"></div>
-        <div data-position="RB" class="player-button RB absolute top-[35%] right-[20%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="RB"></div>
-        <div data-position="CM" class="player-button CM absolute top-[45%] left-[50%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="CM"></div>
-        <div data-position="LM" class="player-button LM absolute top-[70%] left-[30%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="LM"></div>
-        <div data-position="RM" class="player-button RM absolute top-[70%] right-[30%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="RM"></div>
-        <div data-position="LW" class="player-button LW absolute top-[80%] left-[10%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="LW"></div>
-        <div data-position="RW" class="player-button RW absolute top-[80%] right-[10%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="RW"></div>
-        <div data-position="CF" class="player-button CF absolute top-[88%] left-[50%] rounded-full p-0"><img src="img/plus.svg" class="w-16" alt="CF"></div>
-    </section>
-        -->
+
 
     <div class="absolute ">
 
