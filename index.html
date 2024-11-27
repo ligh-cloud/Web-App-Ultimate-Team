@@ -7,6 +7,7 @@
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -68,16 +69,17 @@
 
             </div>
 
-            <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
-                <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
-            </div>
+            
 
             <form
                 class="pop-up bg-[#14803c] p-6 absolute top-[20vh] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
 
             </form>
+            <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
+                <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
+            </div>
         </div>
-        <div class="substitution w-[30vw] h-[90vh] bg-[#1ed65e]">
+        <div class="substitution-container w-[30vw] h-[90vh] bg-[#1ed65e]">
             <div class="flex align-middle justify-center">
           <button id="addPlayerBtn" class=" text-center my-3 h-[5vh] w-[20vw] bg-[#848c94] hover:scale-105 rounded-lg">Add new player</button>
         </div>
@@ -117,8 +119,13 @@
                 </div>
               
                 <div>
-                    <label for="score" class="block font-medium text-gray-700">Score</label>
-                    <input name="score" type="number" id="score" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" min="1" max="100" required>
+                    <label for="place" class="block font-medium text-gray-700">Place</label>
+                    <select id="place" name="position" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                        <option disabled selected hidden>Choose player place</option>
+                        <option value="substitution">Substitution</option>
+                        <option value="field">Field</option>
+                        
+                    </select>
                 </div>
                
                 <div id="players-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
@@ -217,7 +224,7 @@
             <div class="text-sm">
                 <p>Email: <a href="mailto:support@footballteam.com"
                         class="hover:text-yellow-400">support@footballteam.com</a></p>
-                <p>Phone: +1 (800) 123-4567</p>
+                <p>Phone: +1 (000) 000-0000</p>
             </div>
         </div>
         <div class="text-center text-sm mt-6">

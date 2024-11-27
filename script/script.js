@@ -488,7 +488,20 @@ function displayList(player) {
 
 
     let popUpCard = document.createElement('div');
-    popUpCard.innerHTML = `<div class = "bg-[#e7e6f2] flex rounded-lg justify-evenly"> <img class= "lg:h-14 lg:w-14 h-10 w-10" src=${player.photo}> <div class = "flex flex-col lg:w-44 w-32 font-[16px] "><h2>Name : ${player.name}</h2> <p>Rating : ${player.rating} </p></div> <button id="${player.id}" class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">Add player</button></div>`
+    popUpCard.innerHTML = `
+<div class="bg-[#e7e6f2] flex rounded-lg justify-evenly">
+  <img class="lg:h-14 lg:w-14 h-10 w-10" src="${player.photo}">
+  <div class="flex flex-col lg:w-44 w-32 font-[16px]">
+    <h2>Name: ${player.name}</h2>
+    <p>Rating: ${player.rating}</p>
+  </div>
+  <button 
+    onclick="document.querySelector('.pop-up').classList.add('hidden');" 
+    id="${player.id}" 
+    class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
+    Add player
+  </button>
+</div>`;
     form.appendChild(popUpCard);
 
 }
@@ -499,6 +512,7 @@ form.addEventListener('click', (e) => {
     if (e.target.classList.contains('add-button')) {
         const id = e.target.id;
         console.log("ID:", id);
+        
 
 
         const player = players.find(player => player.id == id);
@@ -514,6 +528,7 @@ form.addEventListener('click', (e) => {
                         <div class="fut-player-card">
                             <div class="player-card-top">
                                 <div class="player-master-info">
+                                <div class="player-close"><img src="img/close.svg"></div>
                                     <div class="player-rating"><span>${player.rating}</span></div>
                                     <div class="player-position"><span>${player.position}</span></div>
                                     <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
@@ -562,18 +577,25 @@ form.addEventListener('click', (e) => {
             stadium.appendChild(playerCard);
             playerPos(playerCard, player.position);
             console.log(cardContainer);
+            hidePopup();
         }
 
 
         if (player.position == 'GK') {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
-            playerCard.classList.add("lg:h-[60px]")
+            
             playerCard.innerHTML = `
                     <div class="wrapper">
                         <div class="fut-player-card">
+                        
+                        
+                        
                             <div class="player-card-top">
-                                <div class="player-master-info">
+                            
+                                <div class="relative player-master-info">
+                                    
+                                    <div class="player-close"><img src="img/close.svg"></div>
                                     <div class="player-rating"><span>${player.rating}</span></div>
                                     <div class="player-position"><span>${player.position}</span></div>
                                     <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
@@ -624,6 +646,7 @@ form.addEventListener('click', (e) => {
             stadium.appendChild(playerCard);
             playerPos(playerCard, player.position);
             console.log(cardContainer);
+            hidePopup()
         }
     }
 });
@@ -704,10 +727,10 @@ positionSelect.addEventListener('change', (e) => {
 let newPlayerBtn = document.querySelector('#submit-btn');
 newPlayerBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    let id = 27;
+    let id = players.length + 1;
     let name = document.querySelector('#name').value.trim();
     let positionSelect = document.querySelector('#position').value;
-    let score = document.querySelector('#score').value.trim();
+    
     let pace = document.querySelector('#pace').value.trim();
     let shooting = document.querySelector('#shooting').value.trim();
     let dribbling = document.querySelector('#dribbling').value.trim();
@@ -724,16 +747,17 @@ newPlayerBtn.addEventListener('click', (e) => {
     let flag = "https://www.pikpng.com/pngvi/hbmobR_logo-anonymous-computer-icons-brazil-hacker-anonymous-brasil-png-clipart/";
     let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png"
     if (positionSelect == 'GK') {
+        
         const formData = {
             "id": id,
             "name": name,
             "photo": photo,
-            "position": "GK",
+            "position": positionSelect,
             "nationality": "none",
             "flag": flag,
             "club": "Unknown",
             "logo": logo,
-            "rating": score,
+            "rating": Math.floor((Number(diving) + Number(handling) + Number(kicking) + Number(reflexes) + Number(speed) + Number(positioning)) / 6),
             "diving": diving,
             "handling": handling,
             "kicking": kicking,
@@ -744,36 +768,82 @@ newPlayerBtn.addEventListener('click', (e) => {
         }
         players.push(formData)
         console.log(formData);
+        popupForm.classList.add("hidden");
+        setTimeout(() => {
+            popupForm.classList.add("hidden");
+            overlay.classList.add("hidden");
+        }, 300);
+        
     }
     else {
         const formData = {
             "id": id ,
             "name": name,
             "photo": photo,
-            "position": "GK",
+            "position": positionSelect,
             "nationality": "none",
             "flag": flag,
             "club": "Unknown",
             "logo": logo,
-            "rating": score,
-            "diving": diving,
-            "handling": handling,
-            "kicking": kicking,
-            "reflexes": reflexes,
-            "speed": speed,
-            "positioning": positioning
+            "rating": Math.floor((Number(pace) + Number(shooting) + Number(passing) + Number(dribbling) + Number(defending) + Number(physical)) / 6),
+            "pace": pace,
+            "shooting": shooting,
+            "passing": passing,
+            "dribbling": dribbling,
+            "defending": defending,
+            "physical": physical
 
         }
+        if (!positionSelect || !name) {
+            alert("Please fill the form");
+            return;
+        }
+        
+        if (positionSelect === 'GK' && (!diving || !handling || !kicking || !reflexes || !speed || !positioning)) {
+           
+                alert("Please fill all goalkeeper attributes");
+                return;
+            
+        } else if(positionSelect !== 'GK' && (!pace || !shooting || !passing || !dribbling || !defending || !physical)) {
+           
+                alert("Please fill all outfield player attributes");
+                return;
+            
+        }
+        
+        else if (positionSelect === 'GK' || positionSelect !== 'GK'){
+        alert("Player added successfully!");
         players.push(formData)
         console.log(formData);
+        addPlayer.addEventListener('click') , ()=>{
+    
+            popupForm.classList.add("hidden");
+            form.innerHTML = "";
         
     }
+        
+        
+    }
+  
+    }
+    console.log(id);
     id++;
-    
+    console.log(id);
     
     console.log(players)  
+    newPlayerBtn.addEventListener('click', () => {
+           
+    });
 
 })
+function hidePopup() {
+    form.classList.add("hidden");
+    overlay.classList.add("hidden");
+    form.innerHTML = ""; 
+}
+
+
+
 
 
 
