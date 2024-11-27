@@ -451,7 +451,6 @@ const overlay = document.querySelector("#popup-overlay");
 let closeForm = document.querySelector('.close-form');
 let addPlayer = document.querySelector('.add-button');
 let stadium = document.querySelector('.stadium');
-
 addingButton.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
         const position = e.currentTarget.dataset.position;
@@ -489,6 +488,7 @@ function displayList(player) {
 
 
     let popUpCard = document.createElement('div');
+    popUpCard.classList.add('card-add')
     popUpCard.innerHTML = `
 <div class="bg-[#e7e6f2] flex rounded-lg justify-evenly">
   <img class="lg:h-14 lg:w-14 h-10 w-10" src="${player.photo}">
@@ -497,10 +497,16 @@ function displayList(player) {
     <p>Rating: ${player.rating}</p>
   </div>
   <button 
-    onclick="document.querySelector('.pop-up').classList.add('hidden');" 
+    
     id="${player.id}" 
     class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
     Add player
+  </button>
+  <button 
+    
+    id="${player.id}" 
+    class="subs-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
+    Add Subs
   </button>
 </div>`;
     form.appendChild(popUpCard);
@@ -524,57 +530,7 @@ form.addEventListener('click', (e) => {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
             playerCard.classList.add("lg:h-[60px]")
-            playerCard.innerHTML = `
-                    <div class="wrapper">
-                        <div class="fut-player-card">
-                            <div class="player-card-top">
-                                <div class="player-master-info">
-                                <div class="player-close"><img src="img/close.svg"></div>
-                                    <div class="player-rating"><span>${player.rating}</span></div>
-                                    <div class="player-position"><span>${player.position}</span></div>
-                                    <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
-                                    <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
-                                </div>
-                                <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
-                            </div>
-                            <!-- Player Card Bottom-->
-                            <div class="player-card-bottom">
-                                <div class="player-info">
-                                    <div class="player-name"><span>${player.name}</span></div>
-                                    <div class="player-features">
-                                        <div class="player-features-col">
-                                            <span>
-                                                <div class="player-feature-value">${player.pace}</div>
-                                                <div class="player-feature-title">PAC</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.shooting}</div>
-                                                <div class="player-feature-title">SHO</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.passing}</div>
-                                                <div class="player-feature-title">PAS</div>
-                                            </span>
-                                        </div>
-                                        <div class="player-features-col">
-                                            <span>
-                                                <div class="player-feature-value">${player.dribbling}</div>
-                                                <div class="player-feature-title">DRI</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.defending}</div>
-                                                <div class="player-feature-title">DEF</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.physical}</div>
-                                                <div class="player-feature-title">PHY</div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
+            htmlAddPlayers(playerCard, player);
             stadium.appendChild(playerCard);
             playerPos(playerCard, player.position);
             console.log(cardContainer);
@@ -582,69 +538,12 @@ form.addEventListener('click', (e) => {
             removeBtn(playerCard);
         }
 
-
+        
+        
         if (player.position == 'GK') {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
-
-            playerCard.innerHTML = `
-                    <div class="wrapper">
-                        <div class="fut-player-card">
-                        
-                        
-                        
-                            <div class="player-card-top">
-                            
-                                <div class="relative player-master-info">
-                                    
-                                    <div id='${player.id}' class="player-close"><img src="img/close.svg"></div>
-                                    <div class="player-rating"><span>${player.rating}</span></div>
-                                    <div class="player-position"><span>${player.position}</span></div>
-                                    <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
-                                    <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
-                                </div>
-                                <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
-                            </div>
-                            <!-- Player Card Bottom-->
-                            <div class="player-card-bottom">
-                                <div class="player-info">
-                                    <div class="player-name"><span>${player.name}</span></div>
-                                    <div class="player-features">
-                                        <div class="player-features-col">
-                                            <span>
-                                                <div class="player-feature-value">${player.diving}</div>
-                                                <div class="player-feature-title">DIV</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.handling}</div>
-                                                <div class="player-feature-title">HAN</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.kicking}</div>
-                                                <div class="player-feature-title">KIC</div>
-                                            </span>
-                                        </div>
-                                        <div class="player-features-col">
-                                            <span>
-                                                <div class="player-feature-value">${player.reflexes}</div>
-                                                <div class="player-feature-title">REF</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.speed}</div>
-                                                <div class="player-feature-title">SPE</div>
-                                            </span>
-                                            <span>
-                                                <div class="player-feature-value">${player.positioning}</div>
-                                                <div class="player-feature-title">POS</div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-
-
+            htmlAddGardien(playerCard, player);
             stadium.appendChild(playerCard);
             playerPos(playerCard, player.position);
             console.log(cardContainer);
@@ -862,14 +761,165 @@ function removeBtn(playerCard) {
             playerCard.remove();
         });
 }
-function addToSub(){
+
+
+
+function addToSub(playerCard){
+    let cardAdd = document.querySelector('.card-add');
     let subsContainer = document.querySelector('#sub-container');
+    let addPlayer = cardAdd.querySelector('.add-button');
+    let subButton = cardAdd.querySelectorAll('.sub-button');
+    
+    subButton.addEventListener('click' , ()=>{
+        subsContainer.appendChild(playerCard);
+    })
+    subButton.addEventListener('click' , ()=>{
+        addPlayer.appendChild(playerCard);
+    })
+    
     
 }
+function htmlAddPlayers(playerCard, player) {
+    playerCard.innerHTML = `
+        <div class="wrapper">
+            <div class="fut-player-card">
+                <div class="player-card-top">
+                    <div class="player-master-info">
+                        <div class="player-close"><img src="img/close.svg"></div>
+                        <div class="player-rating"><span>${player.rating}</span></div>
+                        <div class="player-position"><span>${player.position}</span></div>
+                        <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
+                        <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
+                    </div>
+                    <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
+                </div>
+                <div class="player-card-bottom">
+                    <div class="player-info">
+                        <div class="player-name"><span>${player.name}</span></div>
+                        <div class="player-features">
+                            <div class="player-features-col">
+                                <span>
+                                    <div class="player-feature-value">${player.pace}</div>
+                                    <div class="player-feature-title">PAC</div>
+                                </span>
+                                <span>
+                                    <div class="player-feature-value">${player.shooting}</div>
+                                    <div class="player-feature-title">SHO</div>
+                                </span>
+                                <span>
+                                    <div class="player-feature-value">${player.passing}</div>
+                                    <div class="player-feature-title">PAS</div>
+                                </span>
+                            </div>
+                            <div class="player-features-col">
+                                <span>
+                                    <div class="player-feature-value">${player.dribbling}</div>
+                                    <div class="player-feature-title">DRI</div>
+                                </span>
+                                <span>
+                                    <div class="player-feature-value">${player.defending}</div>
+                                    <div class="player-feature-title">DEF</div>
+                                </span>
+                                <span>
+                                    <div class="player-feature-value">${player.physical}</div>
+                                    <div class="player-feature-title">PHY</div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+}
+function htmlAddGardien(playerCard, player){
+    playerCard.innerHTML = `
+            <div class="wrapper">
+                <div class="fut-player-card">
+                
+                
+                
+                    <div class="player-card-top">
+                    
+                        <div class="relative player-master-info">
+                            
+                            <div id='${player.id}' class="player-close"><img src="img/close.svg"></div>
+                            <div class="player-rating"><span>${player.rating}</span></div>
+                            <div class="player-position"><span>${player.position}</span></div>
+                            <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
+                            <div class="player-club"><img src=${player.logo} alt="Barcelona" draggable="false"/></div>
+                        </div>
+                        <div class="player-picture"><img src=${player.photo} alt="Messi" draggable="false"/></div>
+                    </div>
+                    <!-- Player Card Bottom-->
+                    <div class="player-card-bottom">
+                        <div class="player-info">
+                            <div class="player-name"><span>${player.name}</span></div>
+                            <div class="player-features">
+                                <div class="player-features-col">
+                                    <span>
+                                        <div class="player-feature-value">${player.diving}</div>
+                                        <div class="player-feature-title">DIV</div>
+                                    </span>
+                                    <span>
+                                        <div class="player-feature-value">${player.handling}</div>
+                                        <div class="player-feature-title">HAN</div>
+                                    </span>
+                                    <span>
+                                        <div class="player-feature-value">${player.kicking}</div>
+                                        <div class="player-feature-title">KIC</div>
+                                    </span>
+                                </div>
+                                <div class="player-features-col">
+                                    <span>
+                                        <div class="player-feature-value">${player.reflexes}</div>
+                                        <div class="player-feature-title">REF</div>
+                                    </span>
+                                    <span>
+                                        <div class="player-feature-value">${player.speed}</div>
+                                        <div class="player-feature-title">SPE</div>
+                                    </span>
+                                    <span>
+                                        <div class="player-feature-value">${player.positioning}</div>
+                                        <div class="player-feature-title">POS</div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+}
+
+form.addEventListener('click' , (e)=>{
+    e.preventDefault();
+    let subContainer = document.querySelector('#sub-container');
+    
+    if (e.target.classList.contains('subs-button')) {
+        const id = e.target.id;
+        const player = players.find(player => player.id == id);
+
+        if (player.position != 'GK') {
+            
+            const playerCard = document.createElement('div');
+            playerCard.classList.add("lg:h-[60px]")
+            htmlAddPlayers(playerCard, player);
+            subContainer.appendChild(playerCard);
+            console.log(cardContainer);
+            hidePopup();
+            
+        }
+        else{
+            const playerCard = document.createElement('div');
+            playerCard.classList.add("lg:h-[60px]")
+            htmlAddGardien(playerCard, player);
+            subContainer.appendChild(playerCard);
+            console.log(cardContainer);
+            hidePopup();  
+        }
 
 
+    }
 
-
-
-
+})
 
