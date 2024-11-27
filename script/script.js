@@ -451,6 +451,7 @@ const overlay = document.querySelector("#popup-overlay");
 let closeForm = document.querySelector('.close-form');
 let addPlayer = document.querySelector('.add-button');
 let stadium = document.querySelector('.stadium');
+
 addingButton.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
         const position = e.currentTarget.dataset.position;
@@ -578,13 +579,14 @@ form.addEventListener('click', (e) => {
             playerPos(playerCard, player.position);
             console.log(cardContainer);
             hidePopup();
+            removeBtn(playerCard);
         }
 
 
         if (player.position == 'GK') {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
-            
+
             playerCard.innerHTML = `
                     <div class="wrapper">
                         <div class="fut-player-card">
@@ -595,7 +597,7 @@ form.addEventListener('click', (e) => {
                             
                                 <div class="relative player-master-info">
                                     
-                                    <div class="player-close"><img src="img/close.svg"></div>
+                                    <div id='${player.id}' class="player-close"><img src="img/close.svg"></div>
                                     <div class="player-rating"><span>${player.rating}</span></div>
                                     <div class="player-position"><span>${player.position}</span></div>
                                     <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
@@ -646,8 +648,10 @@ form.addEventListener('click', (e) => {
             stadium.appendChild(playerCard);
             playerPos(playerCard, player.position);
             console.log(cardContainer);
-            hidePopup()
+            hidePopup();
+            removeBtn(playerCard);  
         }
+        
     }
 });
 
@@ -840,6 +844,27 @@ function hidePopup() {
     form.classList.add("hidden");
     overlay.classList.add("hidden");
     form.innerHTML = ""; 
+}
+function removeBtn(playerCard) {
+    let removePlayerBtn = playerCard.querySelector('.player-close');
+
+   
+        removePlayerBtn.classList.add('cursor-pointer');
+
+        playerCard.addEventListener('mouseover', () => {
+            removePlayerBtn.style.opacity = '1';
+        });
+        playerCard.addEventListener('mouseleave', () => {
+            removePlayerBtn.style.opacity = '0';
+        });
+
+        removePlayerBtn.addEventListener('click', () => {
+            playerCard.remove();
+        });
+}
+function addToSub(){
+    let subsContainer = document.querySelector('#sub-container');
+    
 }
 
 
