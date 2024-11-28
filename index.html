@@ -29,10 +29,10 @@
 
         </div>
     </nav>
-    <section class="flex">
+    <section class="lg:flex-row flex flex-col">
 
         <div>
-            <div class="stadium w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
+            <div class="stadium lg:w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
                 <button data-position="ST" class="player-button absolute top-[5%] left-[50%] rounded-full p-0 z-0">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
                 </button>
@@ -72,21 +72,25 @@
 
 
             <form
-                class="pop-up bg-[#14803c] p-6 absolute top-[20vh] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
+                class="pop-up bg-[#14803c] p-6 fixed top-[20%] left-[50%] lg:top-[30vh] lg:left-[50%] transform -translate-x-[50%] shadow-lg hidden w-[40vh] h-[50vh] lg:w-[45vw] overflow-y-auto flex flex-col gap-2 rounded-xl z-50">
 
             </form>
             <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-40 hidden" id="popup-overlay">
                 <button class="close-form bg-red-700 w-24 h-10 flex float-end">close</button>
             </div>
         </div>
-        <div class="substitution-container flex flex-col gap-12 w-[30vw] h-[90vh] bg-[#1ed65e]">
-            <div class="flex align-middle justify-center">
+        <div class="substitution-container flex flex-col align-middle gap-12 lg:w-[30vw] lg:h-[90vh] bg-[#1ed65e]">
+            <div class="flex mx-auto flex-col">
                 <button id="addPlayerBtn"
-                    class=" text-center my-3 h-[5vh] w-[20vw] bg-[#848c94] hover:scale-105 rounded-lg">Add new
+                    class=" text-center lg:w-[20vw] my-3 h-[5vh] w-[40vw] bg-[#848c94] hover:scale-105 rounded-lg">Add new
                     player</button>
-
+                    <button id="addPlayerSubs"
+                    class=" text-center lg:w-[20vw]  h-[5vh] w-[40vw] bg-[#848c94] hover:scale-105 rounded-lg">Add
+                    subs</button>
+                    
+                    
             </div>
-            <div id="sub-container" class=" rounded-md p-3 flex flex-col  overflow-y-auto mx-[10%] w-[80%] h-[65vh] bg-black">
+            <div id="sub-container" class=" rounded-md  flex flex-col  overflow-y-auto mx-[10%] w-[80%] h-[65vh] bg-black">
 
             </div>
 

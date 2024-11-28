@@ -122,7 +122,7 @@ const players = [
     {
         "id": 8,
         "name": "Mohamed Salah",
-        "photo": "https://cdn.sofifa.net/players/192/985/25_120.png",
+        "photo": "https://cdn.sofifa.net/players/209/331/25_120.png",
         "position": "RW",
         "nationality": "Egypt",
         "flag": "https://cdn.sofifa.net/flags/eg.png",
@@ -492,7 +492,7 @@ function displayList(player) {
     popUpCard.innerHTML = `
 <div class="bg-[#e7e6f2] flex rounded-lg justify-evenly">
   <img class="lg:h-14 lg:w-14 h-10 w-10" src="${player.photo}">
-  <div class="flex flex-col lg:w-44 w-32 font-[16px]">
+  <div class="flex flex-col lg:w-[20vw] w-32 font-[16px]">
     <h2>Name: ${player.name}</h2>
     <p>Rating: ${player.rating}</p>
   </div>
@@ -501,13 +501,7 @@ function displayList(player) {
     id="${player.id}" 
     class="add-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
     Add player
-  </button>
-  <button 
-    
-    id="${player.id}" 
-    class="subs-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
-    Add Subs
-  </button>
+  </button>   
 </div>`;
     form.appendChild(popUpCard);
 
@@ -764,21 +758,21 @@ function removeBtn(playerCard) {
 
 
 
-function addToSub(playerCard){
-    let cardAdd = document.querySelector('.card-add');
-    let subsContainer = document.querySelector('#sub-container');
-    let addPlayer = cardAdd.querySelector('.add-button');
-    let subButton = cardAdd.querySelectorAll('.sub-button');
+// function addToSub(playerCard){
+//     let cardAdd = document.querySelector('.card-add');
+//     let subsContainer = document.querySelector('#sub-container');
+//     let addPlayer = cardAdd.querySelector('.add-button');
+//     let subButton = cardAdd.querySelectorAll('.sub-button');
     
-    subButton.addEventListener('click' , ()=>{
-        subsContainer.appendChild(playerCard);
-    })
-    subButton.addEventListener('click' , ()=>{
-        addPlayer.appendChild(playerCard);
-    })
+//     subButton.addEventListener('click' , ()=>{
+//         subsContainer.appendChild(playerCard);
+//     })
+//     subButton.addEventListener('click' , ()=>{
+//         addPlayer.appendChild(playerCard);
+//     })
     
     
-}
+// }
 function htmlAddPlayers(playerCard, player) {
     playerCard.innerHTML = `
         <div class="wrapper">
@@ -890,36 +884,107 @@ function htmlAddGardien(playerCard, player){
             </div>`;
 
 }
+ 
+let subContainer = document.querySelector('#sub-container');
+let addSubs = document.querySelector('#addPlayerSubs');
 
-form.addEventListener('click' , (e)=>{
+
+addSubs.addEventListener('click', (e) => {
     e.preventDefault();
-    let subContainer = document.querySelector('#sub-container');
+    form.classList.toggle("hidden");
+    overlay.classList.remove("hidden");
+
+    // Clear previous content to avoid duplicates
+    form.innerHTML = '';
+
+    players.forEach(player => {
+        displaySubs(player);
+    });
+});
+
+function displaySubs(player) {
+    // Create the pop-up card for each player
+    let popUpCard = document.createElement('div');
+    popUpCard.classList.add('card-add');
+    popUpCard.innerHTML = `
+        <div class="bg-[#e7e6f2] flex rounded-lg justify-evenly">
+            <img class="lg:h-14 lg:w-14 h-10 w-10" src="${player.photo}">
+            <div class="flex flex-col lg:w-[20vw] w-32 font-[16px]">
+                <h2>Name: ${player.name}</h2>
+                <p>Rating: ${player.rating}</p>
+            </div>
+            <button 
+                id="${player.id}" 
+                class="subs-button lg:h-9 my-auto bg-[#1d6315] rounded-md">
+                Add Subs
+            </button> 
+        </div>`;
     
+    // Append the pop-up card to the form
+    form.appendChild(popUpCard);
+}
+//     e.preventDefault();
+    
+//     if (e.target.classList.contains('subs-button')){
+   
+
+//     console.log('Button clicked:', button.id);
+    
+    let subsContainer = document.querySelector('#sub-container');
+
+    players.forEach(player => {
+        const playerCard = document.createElement('div');
+        playerCard.classList.add("lg:h-[60px]");
+        
+        if (player.position !== 'GK') {
+            htmlAddPlayers(playerCard, player);
+            
+        } else {
+            htmlAddGardien(playerCard, player);
+            
+        }
+
+        
+        hidePopup();
+        removeBtn(playerCard);
+    });
+
+
+form.addEventListener('click', (e) => {
+    e.preventDefault();
+
     if (e.target.classList.contains('subs-button')) {
         const id = e.target.id;
+        console.log("ID:", id);
+        
+
+
         const player = players.find(player => player.id == id);
 
+
+
         if (player.position != 'GK') {
-            
+            console.log("Players array:", players);
             const playerCard = document.createElement('div');
             playerCard.classList.add("lg:h-[60px]")
             htmlAddPlayers(playerCard, player);
-            subContainer.appendChild(playerCard);
+            subsContainer.appendChild(playerCard);
             console.log(cardContainer);
             hidePopup();
-            
+            removeBtn(playerCard);
         }
-        else{
+
+        
+        
+        if (player.position == 'GK') {
+            console.log("Players array:", players);
             const playerCard = document.createElement('div');
-            playerCard.classList.add("lg:h-[60px]")
             htmlAddGardien(playerCard, player);
-            subContainer.appendChild(playerCard);
+            subsContainer.appendChild(playerCard);
             console.log(cardContainer);
-            hidePopup();  
+            hidePopup();
+            removeBtn(playerCard);  
         }
-
-
+        
     }
-
-})
-
+});
