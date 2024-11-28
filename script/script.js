@@ -442,7 +442,7 @@ const players = [
         "positioning": 85
     }
 ];
-
+let addedTab = [];
 let addingButton = document.querySelectorAll('.player-button');
 let playerCards = document.querySelector('.player-card');
 let cardContainer = document.querySelector('.cards-container');
@@ -513,7 +513,7 @@ form.addEventListener('click', (e) => {
     if (e.target.classList.contains('add-button')) {
         const id = e.target.id;
         console.log("ID:", id);
-        
+
 
 
         const player = players.find(player => player.id == id);
@@ -530,10 +530,11 @@ form.addEventListener('click', (e) => {
             console.log(cardContainer);
             hidePopup();
             removeBtn(playerCard);
+            addedTab.push(player);
         }
 
-        
-        
+
+
         if (player.position == 'GK') {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
@@ -542,10 +543,12 @@ form.addEventListener('click', (e) => {
             playerPos(playerCard, player.position);
             console.log(cardContainer);
             hidePopup();
-            removeBtn(playerCard);  
+            removeBtn(playerCard);
+            addedTab.push(player);
         }
-        
+
     }
+    console.log(addedTab);
 });
 
 
@@ -604,6 +607,7 @@ cancelBtn.addEventListener('click', () => {
 });
 let positionSelect = document.querySelector('#position');
 let playerForm = document.querySelector('#players-stats');
+let playerForms = document.querySelector('#playerForm');
 let GKForm = document.querySelector('#GK-stats');
 
 
@@ -624,10 +628,16 @@ positionSelect.addEventListener('change', (e) => {
 let newPlayerBtn = document.querySelector('#submit-btn');
 newPlayerBtn.addEventListener('click', (e) => {
     e.preventDefault();
+
+     
+    const attributeRegExp = /^(100|[0-9]{1,2})$/; 
+    const nameRegExp = /^[a-zA-Z]{1,10}\s[a-zA-Z]{1,10}$/;
+    const validateAttributes = (...attributes) => attributes.every(attr => attributeRegExp.test(attr.trim()));
+
     let id = players.length + 1;
     let name = document.querySelector('#name').value.trim();
     let positionSelect = document.querySelector('#position').value;
-    
+
     let pace = document.querySelector('#pace').value.trim();
     let shooting = document.querySelector('#shooting').value.trim();
     let dribbling = document.querySelector('#dribbling').value.trim();
@@ -642,9 +652,17 @@ newPlayerBtn.addEventListener('click', (e) => {
     let positioning = document.querySelector('#positioning').value.trim();
     let photo = 'https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg';
     let flag = "https://www.pikpng.com/pngvi/hbmobR_logo-anonymous-computer-icons-brazil-hacker-anonymous-brasil-png-clipart/";
-    let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png"
+    let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png";
+
+    
+
+
     if (positionSelect == 'GK') {
-        
+        if (!validateAttributes(diving, handling, kicking, reflexes, speed, positioning)) {
+            alert("All goalkeeper attributes must be numbers between 0 and 100.");
+            return;
+        }
+
         const formData = {
             "id": id,
             "name": name,
@@ -663,18 +681,41 @@ newPlayerBtn.addEventListener('click', (e) => {
             "positioning": positioning
 
         }
-        players.push(formData)
+        if (!positionSelect || !name) {
+            alert("Please fill the form");
+            return;
+        }
+        if (!diving || !handling || !kicking || !reflexes || !speed || !positioning) {
+
+            alert("Please fill all goalkeeper attributes");
+            return;
+
+        }
+        if (!nameRegExp.test(name)) {
+            alert("Name must be two words, each with a maximum of 10 letters, and must not contain numbers or special characters.");
+            return;
+        }
+        players.push(formData);
+        
         console.log(formData);
         popupForm.classList.add("hidden");
-        setTimeout(() => {
-            popupForm.classList.add("hidden");
-            overlay.classList.add("hidden");
-        }, 300);
-        
+        playerForms.reset();
+
+
+        popupForm.classList.add("hidden");
+        overlay.classList.add("hidden");
+
+        playerForm.classList.add('hidden');
+        GKForm.classList.add('hidden');
+
     }
     else {
+        if (!validateAttributes(pace, shooting, passing, dribbling, defending, physical)) {
+            alert("All goalkeeper attributes must be numbers between 0 and 100.");
+            return;
+        }
         const formData = {
-            "id": id ,
+            "id": id,
             "name": name,
             "photo": photo,
             "position": positionSelect,
@@ -695,65 +736,54 @@ newPlayerBtn.addEventListener('click', (e) => {
             alert("Please fill the form");
             return;
         }
-        
-        if (positionSelect === 'GK' && (!diving || !handling || !kicking || !reflexes || !speed || !positioning)) {
-           
-                alert("Please fill all goalkeeper attributes");
-                return;
-            
-        } else if(positionSelect !== 'GK' && (!pace || !shooting || !passing || !dribbling || !defending || !physical)) {
-           
-                alert("Please fill all outfield player attributes");
-                return;
-            
+
+        if (!nameRegExp.test(name)) {
+            alert("Name must be two words, each with a maximum of 10 letters, and must not contain numbers or special characters.");
+            return;
         }
-        
-        else if (positionSelect === 'GK' || positionSelect !== 'GK'){
+
         alert("Player added successfully!");
         players.push(formData)
         console.log(formData);
-        addPlayer.addEventListener('click') , ()=>{
+        playerForms.reset();
+
+
+        popupForm.classList.add("hidden");
+        overlay.classList.add("hidden");
+
+        GKForm.classList.add('hidden');
+        playerForm.classList.add('hidden');
+
+
+
+
+    }
     
-            popupForm.classList.add("hidden");
-            form.innerHTML = "";
-        
-    }
-        
-        
-    }
-  
-    }
-    console.log(id);
-    id++;
-    console.log(id);
-    
-    console.log(players)  
-    newPlayerBtn.addEventListener('click', () => {
-           
-    });
 
 })
 function hidePopup() {
     form.classList.add("hidden");
     overlay.classList.add("hidden");
-    form.innerHTML = ""; 
+    form.innerHTML = "";
 }
 function removeBtn(playerCard) {
     let removePlayerBtn = playerCard.querySelector('.player-close');
+    let playerId = playerCard.querySelector('.player-close');
 
-   
-        removePlayerBtn.classList.add('cursor-pointer');
 
-        playerCard.addEventListener('mouseover', () => {
-            removePlayerBtn.style.opacity = '1';
-        });
-        playerCard.addEventListener('mouseleave', () => {
-            removePlayerBtn.style.opacity = '0';
-        });
+    removePlayerBtn.classList.add('cursor-pointer');
 
-        removePlayerBtn.addEventListener('click', () => {
-            playerCard.remove();
-        });
+    playerCard.addEventListener('mouseover', () => {
+        removePlayerBtn.style.opacity = '1';
+    });
+    playerCard.addEventListener('mouseleave', () => {
+        removePlayerBtn.style.opacity = '0';
+    });
+
+    removePlayerBtn.addEventListener('click', () => {
+        playerCard.remove();
+        
+    });
 }
 
 
@@ -763,17 +793,19 @@ function removeBtn(playerCard) {
 //     let subsContainer = document.querySelector('#sub-container');
 //     let addPlayer = cardAdd.querySelector('.add-button');
 //     let subButton = cardAdd.querySelectorAll('.sub-button');
-    
+
 //     subButton.addEventListener('click' , ()=>{
 //         subsContainer.appendChild(playerCard);
 //     })
 //     subButton.addEventListener('click' , ()=>{
 //         addPlayer.appendChild(playerCard);
 //     })
-    
-    
+
+
 // }
 function htmlAddPlayers(playerCard, player) {
+    playerCard.id = `${player.id}`;
+    console.log(playerCard.id)
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
@@ -825,7 +857,7 @@ function htmlAddPlayers(playerCard, player) {
             </div>
         </div>`;
 }
-function htmlAddGardien(playerCard, player){
+function htmlAddGardien(playerCard, player) {
     playerCard.innerHTML = `
             <div class="wrapper">
                 <div class="fut-player-card">
@@ -884,7 +916,7 @@ function htmlAddGardien(playerCard, player){
             </div>`;
 
 }
- 
+
 let subContainer = document.querySelector('#sub-container');
 let addSubs = document.querySelector('#addPlayerSubs');
 
@@ -894,7 +926,7 @@ addSubs.addEventListener('click', (e) => {
     form.classList.toggle("hidden");
     overlay.classList.remove("hidden");
 
-    // Clear previous content to avoid duplicates
+
     form.innerHTML = '';
 
     players.forEach(player => {
@@ -903,7 +935,6 @@ addSubs.addEventListener('click', (e) => {
 });
 
 function displaySubs(player) {
-    // Create the pop-up card for each player
     let popUpCard = document.createElement('div');
     popUpCard.classList.add('card-add');
     popUpCard.innerHTML = `
@@ -919,35 +950,35 @@ function displaySubs(player) {
                 Add Subs
             </button> 
         </div>`;
-    
-    // Append the pop-up card to the form
+
     form.appendChild(popUpCard);
 }
 //     e.preventDefault();
-    
+
 //     if (e.target.classList.contains('subs-button')){
-   
+
 
 //     console.log('Button clicked:', button.id);
-    
-    let subsContainer = document.querySelector('#sub-container');
 
-    players.forEach(player => {
-        const playerCard = document.createElement('div');
-        playerCard.classList.add("lg:h-[60px]");
-        
-        if (player.position !== 'GK') {
-            htmlAddPlayers(playerCard, player);
-            
-        } else {
-            htmlAddGardien(playerCard, player);
-            
-        }
+let subsContainer = document.querySelector('#sub-container');
 
-        
-        hidePopup();
-        removeBtn(playerCard);
-    });
+players.forEach(player => {
+    const playerCard = document.createElement('div');
+    playerCard.setAttribute("id", player.id); //added the player id to each player
+    playerCard.classList.add("lg:h-[60px]");
+
+    if (player.position !== 'GK') {
+        htmlAddPlayers(playerCard, player);
+
+    } else {
+        htmlAddGardien(playerCard, player);
+
+    }
+
+
+    hidePopup();
+    removeBtn(playerCard);
+});
 
 
 form.addEventListener('click', (e) => {
@@ -956,7 +987,7 @@ form.addEventListener('click', (e) => {
     if (e.target.classList.contains('subs-button')) {
         const id = e.target.id;
         console.log("ID:", id);
-        
+
 
 
         const player = players.find(player => player.id == id);
@@ -974,8 +1005,8 @@ form.addEventListener('click', (e) => {
             removeBtn(playerCard);
         }
 
-        
-        
+
+
         if (player.position == 'GK') {
             console.log("Players array:", players);
             const playerCard = document.createElement('div');
@@ -983,8 +1014,9 @@ form.addEventListener('click', (e) => {
             subsContainer.appendChild(playerCard);
             console.log(cardContainer);
             hidePopup();
-            removeBtn(playerCard);  
+            removeBtn(playerCard);
         }
-        
+
     }
 });
+console.log(addedTab);
