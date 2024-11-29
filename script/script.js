@@ -42,7 +42,7 @@ const players = [
         "nationality": "Belgium",
         "flag": "https://cdn.sofifa.net/flags/be.png",
         "club": "Manchester City",
-        "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "logo": "https://static.cdnlogo.com/logos/m/5/manchester-city-fc.svg",
         "rating": 91,
         "pace": 74,
         "shooting": 86,
@@ -246,7 +246,7 @@ const players = [
         "nationality": "Norway",
         "flag": "https://cdn.sofifa.net/flags/no.png",
         "club": "Manchester City",
-        "logo": "https://cdn.sofifa.net/players/239/085/25_120.png",
+        "logo": "https://static.cdnlogo.com/logos/m/5/manchester-city-fc.svg",
         "rating": 91,
         "pace": 89,
         "shooting": 94,
@@ -467,7 +467,7 @@ addingButton.forEach(function (btn) {
         });
         form.classList.toggle("hidden");
         overlay.classList.remove("hidden");
-        console.log(filtredPlayer);
+        
     });
     closeForm.addEventListener('click', () => {
         form.classList.add("hidden");
@@ -507,49 +507,7 @@ function displayList(player) {
 
 }
 
-form.addEventListener('click', (e) => {
-    e.preventDefault();
 
-    if (e.target.classList.contains('add-button')) {
-        const id = e.target.id;
-        console.log("ID:", id);
-
-
-
-        const player = players.find(player => player.id == id);
-
-
-
-        if (player.position != 'GK') {
-            console.log("Players array:", players);
-            const playerCard = document.createElement('div');
-            playerCard.classList.add("lg:h-[60px]")
-            htmlAddPlayers(playerCard, player);
-            stadium.appendChild(playerCard);
-            playerPos(playerCard, player.position);
-            console.log(cardContainer);
-            hidePopup();
-            removeBtn(playerCard);
-            addedTab.push(player);
-        }
-
-
-
-        if (player.position == 'GK') {
-            console.log("Players array:", players);
-            const playerCard = document.createElement('div');
-            htmlAddGardien(playerCard, player);
-            stadium.appendChild(playerCard);
-            playerPos(playerCard, player.position);
-            console.log(cardContainer);
-            hidePopup();
-            removeBtn(playerCard);
-            addedTab.push(player);
-        }
-
-    }
-    console.log(addedTab);
-});
 
 
 
@@ -611,8 +569,7 @@ let playerForms = document.querySelector('#playerForm');
 let GKForm = document.querySelector('#GK-stats');
 
 
-let photo = 'https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg'
-console.log(photo)
+
 positionSelect.addEventListener('change', (e) => {
     const selectedValue = e.target.value;
 
@@ -696,8 +653,7 @@ newPlayerBtn.addEventListener('click', (e) => {
             return;
         }
         players.push(formData);
-        
-        console.log(formData);
+
         popupForm.classList.add("hidden");
         playerForms.reset();
 
@@ -744,7 +700,7 @@ newPlayerBtn.addEventListener('click', (e) => {
 
         alert("Player added successfully!");
         players.push(formData)
-        console.log(formData);
+      
         playerForms.reset();
 
 
@@ -804,8 +760,6 @@ function removeBtn(playerCard) {
 
 // }
 function htmlAddPlayers(playerCard, player) {
-    playerCard.id = `${player.id}`;
-    console.log(playerCard.id)
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
@@ -858,6 +812,7 @@ function htmlAddPlayers(playerCard, player) {
         </div>`;
 }
 function htmlAddGardien(playerCard, player) {
+    
     playerCard.innerHTML = `
             <div class="wrapper">
                 <div class="fut-player-card">
@@ -922,6 +877,7 @@ let addSubs = document.querySelector('#addPlayerSubs');
 
 
 addSubs.addEventListener('click', (e) => {
+    let filtredPlayer = filterAddedPlayer(addedTab, players);
     e.preventDefault();
     form.classList.toggle("hidden");
     overlay.classList.remove("hidden");
@@ -929,7 +885,7 @@ addSubs.addEventListener('click', (e) => {
 
     form.innerHTML = '';
 
-    players.forEach(player => {
+    filtredPlayer.forEach(player => {
         displaySubs(player);
     });
 });
@@ -937,6 +893,7 @@ addSubs.addEventListener('click', (e) => {
 function displaySubs(player) {
     let popUpCard = document.createElement('div');
     popUpCard.classList.add('card-add');
+    
     popUpCard.innerHTML = `
         <div class="bg-[#e7e6f2] flex rounded-lg justify-evenly">
             <img class="lg:h-14 lg:w-14 h-10 w-10" src="${player.photo}">
@@ -953,26 +910,21 @@ function displaySubs(player) {
 
     form.appendChild(popUpCard);
 }
-//     e.preventDefault();
-
-//     if (e.target.classList.contains('subs-button')){
-
-
-//     console.log('Button clicked:', button.id);
 
 let subsContainer = document.querySelector('#sub-container');
 
 players.forEach(player => {
     const playerCard = document.createElement('div');
-    playerCard.setAttribute("id", player.id); //added the player id to each player
+
+    
     playerCard.classList.add("lg:h-[60px]");
 
     if (player.position !== 'GK') {
         htmlAddPlayers(playerCard, player);
-
+        
     } else {
         htmlAddGardien(playerCard, player);
-
+        
     }
 
 
@@ -980,43 +932,98 @@ players.forEach(player => {
     removeBtn(playerCard);
 });
 
+form.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (e.target.classList.contains('add-button')) {
+        const id = e.target.id;
+        
+
+
+
+        const player = players.find(player => player.id == id);
+        
+       
+
+        if (player.position != 'GK') {
+            checkSubs(player);
+            const playerCard = document.createElement('div');
+            playerCard.classList.add("lg:h-[60px]")
+            htmlAddPlayers(playerCard, player);
+            playerCard.setAttribute('id', `subs${player.id}`);
+            stadium.appendChild(playerCard);
+            playerPos(playerCard, player.position);
+            addedTab.push(player)
+            hidePopup();
+            removeBtn(playerCard);
+            
+        }
+
+
+
+        if (player.position == 'GK') {
+            checkSubs(player);
+            const playerCard = document.createElement('div');
+            htmlAddGardien(playerCard, player);
+            playerCard.setAttribute('id', `subs${player.id}`);
+            stadium.appendChild(playerCard);
+            playerPos(playerCard, player.position);
+            addedTab.push(player)    
+            hidePopup();
+            removeBtn(playerCard);
+           
+        }
+
+    }
+    
+   
+});
 
 form.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (e.target.classList.contains('subs-button')) {
         const id = e.target.id;
-        console.log("ID:", id);
-
-
-
         const player = players.find(player => player.id == id);
 
+        if (player) {
+            
 
-
-        if (player.position != 'GK') {
-            console.log("Players array:", players);
             const playerCard = document.createElement('div');
-            playerCard.classList.add("lg:h-[60px]")
-            htmlAddPlayers(playerCard, player);
+            playerCard.classList.add("lg:h-[60px]");
+
+            if (player.position !== 'GK') {
+                htmlAddPlayers(playerCard, player);
+            } else {
+                htmlAddGardien(playerCard, player);
+            }
+
+       
+            playerCard.setAttribute('id', `subs${player.id}`);
+
+
             subsContainer.appendChild(playerCard);
-            console.log(cardContainer);
+
+            
+            addedTab.push(player);
+
+           
             hidePopup();
             removeBtn(playerCard);
         }
-
-
-
-        if (player.position == 'GK') {
-            console.log("Players array:", players);
-            const playerCard = document.createElement('div');
-            htmlAddGardien(playerCard, player);
-            subsContainer.appendChild(playerCard);
-            console.log(cardContainer);
-            hidePopup();
-            removeBtn(playerCard);
-        }
-
     }
 });
-console.log(addedTab);
+
+function filterAddedPlayer(addedTab, players) {
+    let addedTabIds = new Set(addedTab.map(player => player.id));
+    return players.filter(player => !addedTabIds.has(player.id));
+}
+
+function checkSubs(player) {
+
+    let checkCard = document.querySelector(`#subs${player.id}`);
+    if (checkCard) {
+
+        checkCard.remove();  
+    }
+}
