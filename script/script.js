@@ -723,22 +723,44 @@ function hidePopup() {
     form.innerHTML = "";
 }
 function removeBtn(playerCard) {
+    
     let removePlayerBtn = playerCard.querySelector('.player-close');
-    let playerId = playerCard.querySelector('.player-close');
 
 
     removePlayerBtn.classList.add('cursor-pointer');
 
     playerCard.addEventListener('mouseover', () => {
-        removePlayerBtn.style.opacity = '1';
+        removePlayerBtn.classList.remove('hidden');
     });
     playerCard.addEventListener('mouseleave', () => {
-        removePlayerBtn.style.opacity = '0';
+        removePlayerBtn.classList.add('hidden');
     });
+    
 
     removePlayerBtn.addEventListener('click', () => {
         playerCard.remove();
         
+    });
+}
+function modifyBtn(playerCard) {
+    let modifyBtn = playerCard.querySelector(".player-modify");
+
+    if (!modifyBtn) {
+        console.error("Modify button not found for this card.");
+        return;
+    }
+
+    playerCard.addEventListener('mouseover', () => {
+        modifyBtn.classList.remove('hidden');
+    });
+
+    playerCard.addEventListener('mouseleave', () => {
+        modifyBtn.classList.add('hidden');
+    });
+
+    modifyBtn.addEventListener('click', () => {
+        console.log(`Modify button clicked for player: ${playerCard.id}`);
+
     });
 }
 
@@ -763,9 +785,11 @@ function htmlAddPlayers(playerCard, player) {
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
+            <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button hidden" data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 hidden"><img src="img/delete.png"></div>
                 <div class="player-card-top">
                     <div class="player-master-info">
-                        <div class="player-close"><img src="img/close.svg"></div>
+                        
                         <div class="player-rating"><span>${player.rating}</span></div>
                         <div class="player-position"><span>${player.position}</span></div>
                         <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
@@ -816,7 +840,7 @@ function htmlAddGardien(playerCard, player) {
     playerCard.innerHTML = `
             <div class="wrapper">
                 <div class="fut-player-card">
-                
+                <button class="modify-button" data-id="${player.id}">Modify</button>
                 
                 
                     <div class="player-card-top">
@@ -930,6 +954,7 @@ players.forEach(player => {
 
     hidePopup();
     removeBtn(playerCard);
+    modifyBtn(playerCard);
 });
 
 form.addEventListener('click', (e) => {
@@ -956,7 +981,7 @@ form.addEventListener('click', (e) => {
             addedTab.push(player)
             hidePopup();
             removeBtn(playerCard);
-            
+            modifyBtn(playerCard);
         }
 
 
@@ -971,7 +996,7 @@ form.addEventListener('click', (e) => {
             addedTab.push(player)    
             hidePopup();
             removeBtn(playerCard);
-           
+            modifyBtn(playerCard);
         }
 
     }
@@ -1010,6 +1035,7 @@ form.addEventListener('click', (e) => {
            
             hidePopup();
             removeBtn(playerCard);
+            modifyBtn(playerCard);
         }
     }
 });
@@ -1027,3 +1053,9 @@ function checkSubs(player) {
         checkCard.remove();  
     }
 }
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modify-button')) {
+
+        const playerId = parseInt(e.target.getAttribute('data-id'));
+    }
+    })
