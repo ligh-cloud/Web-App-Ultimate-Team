@@ -553,7 +553,7 @@ function playerPos(playerElement, position) {
     }
 }
 const addPlayerBtn = document.getElementById('addPlayerBtn');
-const popupForm = document.getElementById('popupForm');
+let popupForm = document.getElementById('popupForm');
 const cancelBtn = document.getElementById('cancelBtn');
 
 addPlayerBtn.addEventListener('click', () => {
@@ -742,51 +742,19 @@ function removeBtn(playerCard) {
         
     });
 }
-function modifyBtn(playerCard) {
-    let modifyBtn = playerCard.querySelector(".player-modify");
-
-    if (!modifyBtn) {
-        console.error("Modify button not found for this card.");
-        return;
-    }
-
-    playerCard.addEventListener('mouseover', () => {
-        modifyBtn.classList.remove('hidden');
-    });
-
-    playerCard.addEventListener('mouseleave', () => {
-        modifyBtn.classList.add('hidden');
-    });
-
-    modifyBtn.addEventListener('click', () => {
-        console.log(`Modify button clicked for player: ${playerCard.id}`);
-
-    });
-}
 
 
 
-// function addToSub(playerCard){
-//     let cardAdd = document.querySelector('.card-add');
-//     let subsContainer = document.querySelector('#sub-container');
-//     let addPlayer = cardAdd.querySelector('.add-button');
-//     let subButton = cardAdd.querySelectorAll('.sub-button');
-
-//     subButton.addEventListener('click' , ()=>{
-//         subsContainer.appendChild(playerCard);
-//     })
-//     subButton.addEventListener('click' , ()=>{
-//         addPlayer.appendChild(playerCard);
-//     })
 
 
-// }
+
 function htmlAddPlayers(playerCard, player) {
+    playerCard.id = `subs${player.id}`;
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
-            <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button hidden" data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
-            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 hidden"><img src="img/delete.png"></div>
+            <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 "><img src="img/delete.png"></div>
                 <div class="player-card-top">
                     <div class="player-master-info">
                         
@@ -836,11 +804,12 @@ function htmlAddPlayers(playerCard, player) {
         </div>`;
 }
 function htmlAddGardien(playerCard, player) {
-    
+    playerCard.id = `subs${player.id}`;
     playerCard.innerHTML = `
             <div class="wrapper">
                 <div class="fut-player-card">
-                <button class="modify-button" data-id="${player.id}">Modify</button>
+                <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button hidden" data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 hidden"><img src="img/delete.png"></div>
                 
                 
                     <div class="player-card-top">
@@ -1053,9 +1022,136 @@ function checkSubs(player) {
         checkCard.remove();  
     }
 }
-document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modify-button')) {
+function modifyBtn(playerCard) {
+    const modifyBtn = playerCard.querySelector(".player-modify");
 
-        const playerId = parseInt(e.target.getAttribute('data-id'));
-    }
-    })
+    playerCard.addEventListener('mouseover', () => {
+        modifyBtn.classList.remove('hidden');
+    });
+
+    playerCard.addEventListener('mouseleave', () => {
+        modifyBtn.classList.add('hidden');
+    });
+
+    modifyBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const modifyForm = document.querySelector('#popupForm');
+        modifyForm.classList.remove('hidden');
+
+        const playerId = parseInt(modifyBtn.getAttribute('data-id'));
+        const player = players.find((p) => p.id === playerId);
+
+        if (player) {
+            console.log('Player selected for modification:', player);
+
+            document.querySelector('#name').value = player.name || '';
+            document.querySelector('#position').value = player.position || '';
+
+            if (player.position === 'GK') {
+                document.getElementById('GK-stats').classList.remove('hidden');
+                document.getElementById('players-stats').classList.add('hidden');
+                document.getElementById('diving').value = player.diving || '';
+                document.getElementById('handling').value = player.handling || '';
+                document.getElementById('kicking').value = player.kicking || '';
+                document.getElementById('reflexes').value = player.reflexes || '';
+                document.getElementById('speed').value = player.speed || '';
+                document.getElementById('positioning').value = player.positioning || '';
+            } else {
+                document.getElementById('players-stats').classList.remove('hidden');
+                document.getElementById('GK-stats').classList.add('hidden');
+                document.getElementById('pace').value = player.pace || '';
+                document.getElementById('shooting').value = player.shooting || '';
+                document.getElementById('passing').value = player.passing || '';
+                document.getElementById('dribbling').value = player.dribbling || '';
+                document.getElementById('defending').value = player.defending || '';
+                document.getElementById('physical').value = player.physical || '';
+            }
+
+            const submitBtn = document.querySelector('#submit-btn');
+            const newSubmitBtn = submitBtn.cloneNode(true);
+            submitBtn.parentNode.replaceChild(newSubmitBtn, submitBtn);
+            newSubmitBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                const nameRegExp = /^[a-zA-Z]{1,10}\s[a-zA-Z]{1,10}$/;
+                const name = document.querySelector('#name').value.trim();
+                if (!nameRegExp.test(name)) {
+                    alert("Name must be two words, each with a maximum of 10 letters, and must not contain numbers or special characters.");
+                    return;
+                }
+
+                let isValid = false;
+                const positionSelect = document.querySelector('#position').value;
+
+                if (positionSelect === 'GK') {
+                    const attributes = ['diving', 'handling', 'kicking', 'reflexes', 'speed', 'positioning'];
+                    const attributeInputs = attributes.map(attr => 
+                        document.getElementById(attr).value.trim()
+                    );
+
+                    isValid = validateAttributes(...attributeInputs);
+
+                    if (!isValid) {
+                        alert("All goalkeeper attributes must be numbers between 0 and 100.");
+                        return;
+                    }
+
+                    attributes.forEach((attr, index) => {
+                        player[attr] = attributeInputs[index];
+                    });
+
+                 
+                    player.rating = Math.floor(attributeInputs.reduce((a, b) => a + Number(b), 0) / attributes.length);
+                } else {
+                    const attributes = ['pace', 'shooting', 'passing', 'dribbling', 'defending', 'physical'];
+                    const attributeInputs = attributes.map(attr => 
+                        document.getElementById(attr).value.trim()
+                    );
+
+                    isValid = validateAttributes(...attributeInputs);
+
+                    if (!isValid) {
+                        alert("All player attributes must be numbers between 0 and 100.");
+                        return;
+                    }
+
+                    attributes.forEach((attr, index) => {
+                        player[attr] = attributeInputs[index];
+                    });
+
+                    player.rating = Math.floor(attributeInputs.reduce((a, b) => a + Number(b), 0) / attributes.length);
+                }
+
+                const nameElement = playerCard.querySelector('.player-name span');
+                const ratingElement = playerCard.querySelector('.player-rating span');
+                
+                if (nameElement) nameElement.textContent = player.name;
+                if (ratingElement) ratingElement.textContent = player.rating;
+
+      
+                const featureValues = playerCard.querySelectorAll('.player-feature-value');
+                if (positionSelect === 'GK') {
+                    const attributes = ['diving', 'handling', 'kicking', 'reflexes', 'speed', 'positioning'];
+                    attributes.forEach((attr, index) => {
+                        if (featureValues[index]) featureValues[index].textContent = player[attr];
+                    });
+                } else {
+                    const attributes = ['pace', 'shooting', 'passing', 'dribbling', 'defending', 'physical'];
+                    attributes.forEach((attr, index) => {
+                        if (featureValues[index]) featureValues[index].textContent = player[attr];
+                    });
+                }
+
+           
+                modifyForm.classList.add("hidden");
+                
+            });
+        }
+    });
+}
+
+function validateAttributes(...attributes) {
+    const attributeRegExp = /^(100|[0-9]{1,2})$/;
+    return attributes.every(attr => attributeRegExp.test(attr.trim()));
+}
