@@ -737,9 +737,13 @@ function removeBtn(playerCard) {
     });
     
 
-    removePlayerBtn.addEventListener('click', () => {
+    removePlayerBtn.addEventListener('click', (e) => {
+        const removedPlayerId = e.target.dataset.id;
+        console.log("Player ID to remove:", removedPlayerId);
+    
+        addedTab = addedTab.filter(player => player.id !== parseInt(removedPlayerId));
+
         playerCard.remove();
-        
     });
 }
 
@@ -753,8 +757,8 @@ function htmlAddPlayers(playerCard, player) {
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
-            <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
-            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 "><img src="img/delete.png"></div>
+            <button  class="player-modify hidden absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div  class="player-close hidden absolute w-5 h-5 top-[2%] left-[30%] z-50 "><img data-id="${player.id}" src="img/delete.png"></div>
                 <div class="player-card-top">
                     <div class="player-master-info">
                         
@@ -1047,6 +1051,7 @@ function modifyBtn(playerCard) {
 
             document.querySelector('#name').value = player.name || '';
             document.querySelector('#position').value = player.position || '';
+            document.querySelector('#position').disabled = true; // need to add it only to player that already exist in data
 
             if (player.position === 'GK') {
                 document.getElementById('GK-stats').classList.remove('hidden');
@@ -1143,8 +1148,12 @@ function modifyBtn(playerCard) {
                     });
                 }
 
-           
+                let formForReset = document.querySelector('#playerForm');
+                GKForm.classList.add('hidden');
+                playerForm.classList.add('hidden');
                 modifyForm.classList.add("hidden");
+                formForReset.reset();
+                
                 
             });
         }
