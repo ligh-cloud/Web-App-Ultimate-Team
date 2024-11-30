@@ -11,63 +11,78 @@
 </head>
 
 <body>
-    <nav class="bg-green-700 text-white shadow-md h-[10vh]">
+    <nav class="bg-green-700 text-white shadow-md">
         <div class="container mx-auto flex items-center justify-between p-4">
 
-            <a href="#" class="text-2xl font-bold">Football Team</a>
+          <a href="#" class="text-2xl font-bold">Football Team</a>
+      
+          <button id="burger-menu" class="text-white md:hidden focus:outline-none">
 
-
-            <ul class="flex space-x-6">
-                <li><a href="#players" class="hover:text-yellow-400 ">Players</a></li>
-                <li><a href="#formations" class="hover:text-yellow-400">Formations</a></li>
-                <li><a href="#chemistry" class="hover:text-yellow-400">Team Chemistry</a></li>
-                <li><a href="#stats" class="hover:text-yellow-400">Player Stats</a></li>
-                <li><a href="#settings" class="hover:text-yellow-400">Settings</a></li>
-            </ul>
-
-
-
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+      
+         
+          <ul id="menu" class="hidden z-50 absolute top-[9vh] left-0 w-full bg-green-700 p-4 md:static md:flex md:flex-row md:space-x-6 md:space-y-0 md:bg-transparent md:w-auto">
+            <li><a href="#players" class="text-center block hover:text-yellow-400">Players</a></li>
+            <li><a href="#formations" class="text-center block hover:text-yellow-400">Formations</a></li>
+            <li><a href="#chemistry" class="text-center block hover:text-yellow-400">Team Chemistry</a></li>
+            <li><a href="#stats" class="text-center block hover:text-yellow-400">Player Stats</a></li>
+            <li><a href="#settings" class="text-center block hover:text-yellow-400">Settings</a></li>
+          </ul>
         </div>
-    </nav>
+      </nav>
+      
+      <script>
+        const burgerMenu = document.getElementById('burger-menu');
+        const menu = document.getElementById('menu');
+      
+        burgerMenu.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      </script>
+      
     <section class="lg:flex-row flex flex-col">
 
         <div>
             <div class="stadium lg:w-[70vw] h-[90vh] bg-[url('img/stadium.webp')] bg-cover bg-center relative">
-                <button data-position="ST" class="player-button absolute top-[5%] left-[50%] rounded-full p-0 z-0">
+                <button data-position="ST" class="player-button absolute top-[10%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 z-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
                 </button>
-                <button data-position="LW" class="player-button  absolute top-[15%] left-[10%] rounded-full p-0">
+                <button data-position="LW" class="player-button absolute top-[15%] left-[10%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
                 </button>
-                <button data-position="RW" class="player-button  absolute top-[15%] right-[10%] rounded-full p-0">
+                <button data-position="RW" class="player-button absolute top-[15%] right-[10%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CB">
                 </button>
-                <button data-position="LCM" class="CM1 player-button  absolute top-[35%] left-[20%] rounded-full p-0">
+                <button data-position="LCM" class="CM1 player-button absolute top-[40%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LB">
                 </button>
-                <button data-position="RCM" class="CM2 player-button  absolute top-[35%] right-[20%] rounded-full p-0">
+                <button data-position="RCM" class="CM2 player-button absolute top-[40%] right-[20%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RB">
                 </button>
-                <button data-position="CDM" class="player-button  absolute top-[45%] left-[50%] rounded-full p-0">
+                <button data-position="CDM" class="player-button absolute top-[45%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CM">
                 </button>
-                <button data-position="LCB" class="CB2 player-button  absolute top-[70%] left-[30%] rounded-full p-0">
+                <button data-position="LCB" class="CB2 player-button absolute top-[70%] left-[30%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="CDM">
                 </button>
-                <button data-position="RCB" class="CB1 player-button  absolute top-[70%] right-[30%] rounded-full p-0">
+                <button data-position="RCB" class="CB1 player-button absolute top-[70%] right-[30%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
                 </button>
-                <button data-position="LB" class="player-button CB1 absolute top-[80%] left-[10%] rounded-full p-0">
+                <button data-position="LB" class="player-button CB1 absolute top-[80%] left-[10%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="RW">
                 </button>
-                <button data-position="RB" class="player-button CB2 absolute top-[80%] right-[10%] rounded-full p-0">
+                <button data-position="RB" class="player-button CB2 absolute top-[80%] right-[10%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="ST">
                 </button>
-                <button data-position="GK" class="player-button  absolute top-[88%] left-[50%] rounded-full p-0">
+                <button data-position="GK" class="player-button absolute top-[88%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-full p-0 hover:scale-105 transition-transform duration-200">
                     <img src="img/plus.svg" class="lg:w-16 w-8 sm:w-12" alt="LW">
                 </button>
-
             </div>
+            
+            
 
 
 
@@ -101,20 +116,19 @@
 
     </section>
     <div id="popupForm" class="z-50 fixed inset-0 flex items-center justify-center hidden bg-gray-900 bg-opacity-50">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-4">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-4 sm:mx-auto">
             <h2 class="text-lg font-bold mb-4 text-center">Ajouter un Joueur</h2>
             <form id="playerForm" class="space-y-4">
-
                 <div>
                     <label for="name" class="block font-medium text-gray-700">Nom</label>
                     <input type="text" id="name" name="name"
-                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" >
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
                 </div>
-
+    
                 <div>
                     <label for="position" class="block font-medium text-gray-700">Position</label>
                     <select id="position" contenteditable="false" name="position"
-                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500" >
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
                         <option disabled selected hidden>Choose position</option>
                         <option value="LW">LW</option>
                         <option value="ST">ST</option>
@@ -134,7 +148,7 @@
                     
                 </div>
 
-                <div id="players-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                <div id="players-stats" class="grid grid-cols-2 gap-4 hidden">
                     <div>
                         <label for="pace" class="block font-medium text-gray-700">Pace (PAC)</label>
                         <input name="pace" type="number" id="pace"
@@ -168,7 +182,7 @@
                     </div>
                 </div>
 
-                <div id="GK-stats" class="grid grid-cols-1 sm:grid-cols-2 gap-4 hidden">
+                <div id="GK-stats" class="grid grid-cols-2 gap-4 hidden">
                     <div>
                         <label for="diving" class="block font-medium text-gray-700">Diving (DIV)</label>
                         <input name="diving" type="number" id="diving"

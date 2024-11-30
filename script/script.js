@@ -516,42 +516,43 @@ function displayList(player) {
 function playerPos(playerElement, position) {
     switch (position) {
         case 'LW':
-            playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'ST':
-            playerElement.classList.add("absolute", "top-[3%]", "left-[50%]", "z-10");
+            playerElement.classList.add("absolute", "top-[5%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "z-10");
             break;
         case 'RW':
-            playerElement.classList.add("absolute", "top-[13%]", "right-[10%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[13%]", "right-[8%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'CDM':
-            playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'LCM':
-            playerElement.classList.add("absolute", "top-[33%]", "left-[20%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[38%]", "left-[20%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'RCM':
-            playerElement.classList.add("absolute", "top-[33%]", "right-[20%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[38%]", "right-[17%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'RB':
-            playerElement.classList.add("absolute", "top-[77%]", "right-[10%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[77%]", "right-[8%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'LB':
-            playerElement.classList.add("absolute", "top-[77%]", "left-[10%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[77%]", "left-[10%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'LCB':
-            playerElement.classList.add("absolute", "top-[67%]", "left-[30%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[67%]", "left-[30%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'RCB':
-            playerElement.classList.add("absolute", "top-[67%]", "right-[30%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[67%]", "right-[27%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'GK':
-            playerElement.classList.add("absolute", "top-[85%]", "left-[50%]", "p-0", "z-10");
+            playerElement.classList.add("absolute", "top-[88%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         default:
             console.warn("Unknown position:", position);
     }
 }
+
 const addPlayerBtn = document.getElementById('addPlayerBtn');
 let popupForm = document.getElementById('popupForm');
 const cancelBtn = document.getElementById('cancelBtn');
@@ -757,8 +758,8 @@ function htmlAddPlayers(playerCard, player) {
     playerCard.innerHTML = `
         <div class="wrapper">
             <div class="fut-player-card">
-            <button  class="player-modify hidden absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
-            <div  class="player-close hidden absolute w-5 h-5 top-[2%] left-[30%] z-50 "><img data-id="${player.id}" src="img/delete.png"></div>
+            <button  class="player-modify hidden absolute w-2 h-2 sm:w-5 sm:h-5 lg:top-[2%] top-[4%] lg:left-[52%] left-[50%]  text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div  class="player-close hidden absolute w-2 h-2 sm:w-5 sm:h-5 lg:top-[2%] top-[4%] lg:left-[30%] left-[35%] z-50 "><img data-id="${player.id}" src="img/delete.png"></div>
                 <div class="player-card-top">
                     <div class="player-master-info">
                         
@@ -810,17 +811,18 @@ function htmlAddPlayers(playerCard, player) {
 function htmlAddGardien(playerCard, player) {
     playerCard.id = `subs${player.id}`;
     playerCard.innerHTML = `
-            <div class="wrapper">
-                <div class="fut-player-card">
-                <button  class="player-modify absolute w-5 h-5 top-[2%] left-[52%] text-red-500 modify-button hidden" data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
-            <div class="player-close absolute w-5 h-5 top-[2%] left-[30%] z-50 hidden"><img src="img/delete.png"></div>
+            <div class="wrapper  ">
+                <div class="fut-player-card ">
+                
+            <button  class="player-modify hidden absolute w-2 h-2 sm:w-5 sm:h-5 sm:top-[2%] top-[4%] lg:left-[52%] left-[50%]  text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
+            <div  class="player-close hidden absolute w-2 h-2 sm:w-5 sm:h-5  sm:top-[2%] top-[4%] lg:left-[30%] sm:left-[25%] left-[35%] z-50 "><img data-id="${player.id}" src="img/delete.png"></div>
                 
                 
                     <div class="player-card-top">
                     
                         <div class="relative player-master-info">
                             
-                            <div id='${player.id}' class="player-close"><img src="img/close.svg"></div>
+                  
                             <div class="player-rating"><span>${player.rating}</span></div>
                             <div class="player-position"><span>${player.position}</span></div>
                             <div class="player-nation"><img src=${player.flag} alt="Argentina" draggable="false"/></div>
@@ -1031,10 +1033,12 @@ function modifyBtn(playerCard) {
 
     playerCard.addEventListener('mouseover', () => {
         modifyBtn.classList.remove('hidden');
+        playerCard.classList.add('hover:z-50');
     });
 
     playerCard.addEventListener('mouseleave', () => {
         modifyBtn.classList.add('hidden');
+        playerCard.classList.remove('hover:z-50');
     });
 
     modifyBtn.addEventListener('click', (e) => {
@@ -1124,7 +1128,7 @@ function modifyBtn(playerCard) {
                     attributes.forEach((attr, index) => {
                         player[attr] = attributeInputs[index];
                     });
-
+                    player.name = name; 
                     player.rating = Math.floor(attributeInputs.reduce((a, b) => a + Number(b), 0) / attributes.length);
                 }
 
