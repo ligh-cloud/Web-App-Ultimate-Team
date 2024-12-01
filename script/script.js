@@ -516,13 +516,13 @@ function displayList(player) {
 function playerPos(playerElement, position) {
     switch (position) {
         case 'LW':
-            playerElement.classList.add("absolute", "top-[13%]", "left-[10%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
+            playerElement.classList.add("absolute", "rw" , "top-[13%]", "left-[10%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'ST':
-            playerElement.classList.add("absolute", "top-[5%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "z-10");
+            playerElement.classList.add("absolute", "top-[10%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "z-10");
             break;
         case 'RW':
-            playerElement.classList.add("absolute", "top-[13%]", "right-[8%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
+            playerElement.classList.add("absolute" , "top-[13%]", "right-[8%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
             break;
         case 'CDM':
             playerElement.classList.add("absolute", "top-[43%]", "left-[50%]", "transform", "-translate-x-1/2", "-translate-y-1/2", "p-0", "z-10");
@@ -757,7 +757,7 @@ function htmlAddPlayers(playerCard, player) {
     playerCard.id = `subs${player.id}`;
     playerCard.innerHTML = `
         <div class="wrapper">
-            <div class="fut-player-card">
+            <div class="fut-player-card ${player.position} ">
             <button  class="player-modify hidden absolute w-2 h-2 sm:w-5 sm:h-5 lg:top-[2%] top-[4%] lg:left-[52%] left-[50%]  text-red-500 modify-button " data-id="${player.id}"><img src="img/modify.png" alt="modify"></button>
             <div  class="player-close hidden absolute w-2 h-2 sm:w-5 sm:h-5 lg:top-[2%] top-[4%] lg:left-[30%] left-[35%] z-50 "><img data-id="${player.id}" src="img/delete.png"></div>
                 <div class="player-card-top">
@@ -1110,7 +1110,7 @@ function modifyBtn(playerCard) {
                         player[attr] = attributeInputs[index];
                     });
 
-                 
+                    player.name = name;
                     player.rating = Math.floor(attributeInputs.reduce((a, b) => a + Number(b), 0) / attributes.length);
                 } else {
                     const attributes = ['pace', 'shooting', 'passing', 'dribbling', 'defending', 'physical'];

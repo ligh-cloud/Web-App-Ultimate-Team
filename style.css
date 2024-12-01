@@ -164,8 +164,22 @@ img{
         width: 60px;
         height: 100px;
         padding: 0.6rem 0;
+        
     }
-
+    .RW{
+        top: 15%;
+        left: 60%;
+    }
+    .RCM{
+        left: 54%;
+    }
+    .RB{
+        left: 60%;
+    }
+    .RCB{
+        left: 50%;
+    }
+    
     .fut-player-card .player-card-top {
         padding: 0 0.2rem;
     }
