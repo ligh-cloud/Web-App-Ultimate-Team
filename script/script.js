@@ -1030,7 +1030,7 @@ function checkSubs(player) {
 }
 function modifyBtn(playerCard) {
     const modifyBtn = playerCard.querySelector(".player-modify");
-
+    document.querySelector('.disabled').disabled = true;
     playerCard.addEventListener('mouseover', () => {
         modifyBtn.classList.remove('hidden');
         playerCard.classList.add('hover:z-50');
