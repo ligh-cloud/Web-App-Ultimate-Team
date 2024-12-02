@@ -1178,7 +1178,10 @@ function modifyBtn(playerCard) {
             cancelBtn.addEventListener('click', () => {
                 console.log('Cancel clicked, removing disabled');
                 document.querySelector('#position').removeAttribute('disabled');
-                
+                popupForm.classList.add('hidden');
+            formForReset.reset();
+            playerForm.classList.add('hidden');
+            modifyForm.classList.add("hidden");
             });
         }
     });
