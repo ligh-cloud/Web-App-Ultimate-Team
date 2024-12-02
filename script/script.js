@@ -453,6 +453,7 @@ let addPlayer = document.querySelector('.add-button');
 let stadium = document.querySelector('.stadium');
 addingButton.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
+        
         const position = e.currentTarget.dataset.position;
         let filtredPlayer = players.filter(function (player) {
             if (player.position === position) {
@@ -467,6 +468,14 @@ addingButton.forEach(function (btn) {
         });
         form.classList.toggle("hidden");
         overlay.classList.remove("hidden");
+        cancelBtn.addEventListener('click', () => {
+            popupForm.classList.add('hidden');
+            formForReset.reset();
+            playerForm.classList.add('hidden');
+            modifyForm.classList.add("hidden");
+          
+        
+        });
         
     });
     closeForm.addEventListener('click', () => {
@@ -559,6 +568,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 let formForReset = document.querySelector('#playerForm');
 addPlayerBtn.addEventListener('click', () => {
     popupForm.classList.remove('hidden');
+    
 });
 
 cancelBtn.addEventListener('click', () => {
@@ -566,6 +576,8 @@ cancelBtn.addEventListener('click', () => {
     formForReset.reset();
     playerForm.classList.add('hidden');
     modifyForm.classList.add("hidden");
+  
+
 });
 let positionSelect = document.querySelector('#position');
 let playerForm = document.querySelector('#players-stats');
@@ -577,7 +589,7 @@ let GKForm = document.querySelector('#GK-stats');
 positionSelect.addEventListener('change', (e) => {
     const selectedValue = e.target.value;
 
-
+    
     if (selectedValue === 'GK') {
         GKForm.classList.remove('hidden');
         playerForm.classList.add('hidden');
@@ -589,8 +601,6 @@ positionSelect.addEventListener('change', (e) => {
 let newPlayerBtn = document.querySelector('#submit-btn');
 newPlayerBtn.addEventListener('click', (e) => {
     e.preventDefault();
-
-     
     const attributeRegExp = /^(100|[0-9]{1,2})$/; 
     const nameRegExp = /^[a-zA-Z]{1,10}\s[a-zA-Z]{1,10}$/;
     const validateAttributes = (...attributes) => attributes.every(attr => attributeRegExp.test(attr.trim()));
@@ -1033,7 +1043,7 @@ function checkSubs(player) {
 }
 function modifyBtn(playerCard) {
     const modifyBtn = playerCard.querySelector(".player-modify");
-    document.querySelector('.disabled').disabled = true;
+    
     playerCard.addEventListener('mouseover', () => {
         modifyBtn.classList.remove('hidden');
         playerCard.classList.add('hover:z-50');
@@ -1046,7 +1056,7 @@ function modifyBtn(playerCard) {
 
     modifyBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
+  
         const modifyForm = document.querySelector('#popupForm');
         modifyForm.classList.remove('hidden');
 
@@ -1058,7 +1068,7 @@ function modifyBtn(playerCard) {
 
             document.querySelector('#name').value = player.name || '';
             document.querySelector('#position').value = player.position || '';
-            document.querySelector('#position').disabled = true; // need to add it only to player that already exist in data
+            document.querySelector('#position').disabled = true; 
 
             if (player.position === 'GK') {
                 document.getElementById('GK-stats').classList.remove('hidden');
@@ -1084,8 +1094,10 @@ function modifyBtn(playerCard) {
             const newSubmitBtn = submitBtn.cloneNode(true);
             submitBtn.parentNode.replaceChild(newSubmitBtn, submitBtn);
             newSubmitBtn.addEventListener('click', (event) => {
+                
                 event.preventDefault();
-
+                // document.querySelector('.disabled').disabled = false;
+                document.querySelector('#position').removeAttribute('disabled');
                 const nameRegExp = /^[a-zA-Z]{1,10}\s[a-zA-Z]{1,10}$/;
                 const name = document.querySelector('#name').value.trim();
                 if (!nameRegExp.test(name)) {
@@ -1161,6 +1173,11 @@ function modifyBtn(playerCard) {
                 modifyForm.classList.add("hidden");
                 formForReset.reset();
                 
+                
+            });
+            cancelBtn.addEventListener('click', () => {
+                console.log('Cancel clicked, removing disabled');
+                document.querySelector('#position').removeAttribute('disabled');
                 
             });
         }
