@@ -468,14 +468,7 @@ addingButton.forEach(function (btn) {
         });
         form.classList.toggle("hidden");
         overlay.classList.remove("hidden");
-        cancelBtn.addEventListener('click', () => {
-            popupForm.classList.add('hidden');
-            formForReset.reset();
-            playerForm.classList.add('hidden');
-            modifyForm.classList.add("hidden");
-          
         
-        });
         
     });
     closeForm.addEventListener('click', () => {
@@ -1178,10 +1171,6 @@ function modifyBtn(playerCard) {
             cancelBtn.addEventListener('click', () => {
                 console.log('Cancel clicked, removing disabled');
                 document.querySelector('#position').removeAttribute('disabled');
-                popupForm.classList.add('hidden');
-            formForReset.reset();
-            playerForm.classList.add('hidden');
-            modifyForm.classList.add("hidden");
             });
         }
     });
