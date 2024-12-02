@@ -556,13 +556,16 @@ function playerPos(playerElement, position) {
 const addPlayerBtn = document.getElementById('addPlayerBtn');
 let popupForm = document.getElementById('popupForm');
 const cancelBtn = document.getElementById('cancelBtn');
-
+let formForReset = document.querySelector('#playerForm');
 addPlayerBtn.addEventListener('click', () => {
     popupForm.classList.remove('hidden');
 });
 
 cancelBtn.addEventListener('click', () => {
     popupForm.classList.add('hidden');
+    formForReset.reset();
+    playerForm.classList.add('hidden');
+    modifyForm.classList.add("hidden");
 });
 let positionSelect = document.querySelector('#position');
 let playerForm = document.querySelector('#players-stats');
@@ -608,7 +611,7 @@ newPlayerBtn.addEventListener('click', (e) => {
     let speed = document.querySelector('#speed').value.trim();
     let kicking = document.querySelector('#kicking').value.trim();
     let positioning = document.querySelector('#positioning').value.trim();
-    let photo = 'https://static.vecteezy.com/system/resources/thumbnails/001/840/618/small/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-free-vector.jpg';
+    let photo = 'img/profile.png';
     let flag = "https://www.pikpng.com/pngvi/hbmobR_logo-anonymous-computer-icons-brazil-hacker-anonymous-brasil-png-clipart/";
     let logo = "https://w7.pngwing.com/pngs/248/997/png-transparent-t-shirt-anonymous-hoodie-logo-million-mask-march-anonymous-emblem-trademark-poster-thumbnail.png";
 
@@ -1151,8 +1154,8 @@ function modifyBtn(playerCard) {
                         if (featureValues[index]) featureValues[index].textContent = player[attr];
                     });
                 }
-
-                let formForReset = document.querySelector('#playerForm');
+         
+                
                 GKForm.classList.add('hidden');
                 playerForm.classList.add('hidden');
                 modifyForm.classList.add("hidden");
